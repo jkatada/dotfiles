@@ -21,6 +21,7 @@ call neobundle#rc(expand('~/dotfiles/vimfiles/bundle/'))
 NeoBundleFetch 'Shougo/neobundle.vim'
 NeoBundle 'Shougo/vimproc'
 NeoBundle 'mattn/zencoding-vim'
+NeoBundle 'thinca/vim-quickrun'
 
 "filetype plugin indent on
 
