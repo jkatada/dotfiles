@@ -22,7 +22,7 @@ Windows XP
 ----------
 
 	# git clone
-	cd
+	cd %HOMEPATH%
 	git clone https://github.com/jkatada/dotfiles
 	
 	# git clone NeoBundle
