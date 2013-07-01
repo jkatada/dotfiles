@@ -23,6 +23,7 @@ NeoBundle 'Shougo/vimproc'
 NeoBundle 'mattn/zencoding-vim'
 NeoBundle 'tyru/open-browser.vim'
 NeoBundle 'thinca/vim-quickrun'
+NeoBundle 'kannokanno/previm'
 
 "filetype plugin indent on
 
@@ -32,19 +33,12 @@ NeoBundleCheck
 " open-browser
 "
 " \wでカーソル下のURLを開く
-"
 nmap <Leader>w <Plug>(openbrowser-smart-search)
 
 "---------------------------------------------------------------------------
 " vim-quickrun
 "
 let g:quickrun_config = {}
-" markdownをブラウザで確認する設定
-let g:quickrun_config.markdown = {
-			\ 'type': 'markdown/pandoc',
-			\ 'cmdopt': '-s',
-			\ 'outputter': 'browser'
-			\ }
  
 "---------------------------------------------------------------------------
 " zencoding
