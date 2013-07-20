@@ -150,6 +150,8 @@ if has("autocmd")
     \ if line("'\"") > 0 && line("'\"") <= line("$") |
     \   exe "normal g`\"" |
     \ endif
+	" 拡張子に対するfiletype設定
+	au BufNewFile,BufRead *.md set filetype=markdown
 
 endif " has("autocmd")
 
