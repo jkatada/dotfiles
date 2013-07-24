@@ -7,6 +7,7 @@ elseif has("unix")
 elseif has("win32")
 	colorscheme solarized
 	set background=light
+	highlight Normal guifg=Black
 	highlight Cursor guibg=LightGray guifg=LightGray
 	highlight SpecialKey gui=NONE guifg=LightGray guibg=NONE
 	highlight NonText gui=NONE guifg=LightGray guibg=NONE
