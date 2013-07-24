@@ -200,16 +200,20 @@ augroup END
 " カラースキームの設定(CUI)
 "
 if has("mac")
-	colorscheme default
-	highlight SpecialKey cterm=NONE ctermfg=LightGray
-	highlight NonText cterm=NONE ctermfg=LightGray
-	highlight IdeographicSpace cterm=underline ctermfg=LightGray
 elseif has("unix")
-	" Cygwinもここ
-	colorscheme default
-	highlight IdeographicSpace cterm=underline ctermfg=Brown
-	highlight SpecialKey cterm=NONE ctermfg=Brown
-	highlight NonText cterm=NONE ctermfg=Brown
+	if $TERM == "cygwin"
+		" Cygwin
+		colorscheme default
+		highlight IdeographicSpace cterm=underline ctermfg=Brown
+		highlight SpecialKey cterm=NONE ctermfg=Brown
+		highlight NonText cterm=NONE ctermfg=Brown
+	else
+		" MacのVimはここ
+		colorscheme default
+		highlight SpecialKey cterm=NONE ctermfg=LightGray
+		highlight NonText cterm=NONE ctermfg=LightGray
+		highlight IdeographicSpace cterm=underline ctermfg=LightGray
+	endif
 elseif has("win32")
 elseif has("win64")
 endif
