@@ -16,6 +16,7 @@ Linux, Mac, etc
 	# create .vimrc synbolic link
 	cd
 	ln -s dotfiles/.vimrc .vimrc
+	ln -s dotfiles/.gvimrc .gvimrc
 
 
 Windows XP
@@ -33,4 +34,5 @@ Windows XP
 	# create .vimrc hard link
 	cd %HOMEPATH%
 	fsutil hardlink create .vimrc dotfiles/.vimrc
+	fsutil hardlink create .gvimrc dotfiles/.gvimrc
 

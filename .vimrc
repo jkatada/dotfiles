@@ -28,7 +28,9 @@ NeoBundle 'mattn/zencoding-vim'
 NeoBundle 'tyru/open-browser.vim'
 NeoBundle 'thinca/vim-quickrun'
 NeoBundle 'kannokanno/previm'
-
+" solarized カラースキーム
+NeoBundle 'altercation/vim-colors-solarized'
+  
 "filetype plugin indent on
 
 NeoBundleCheck
@@ -142,38 +144,19 @@ set nobackup
 " 今は何もなし
 
 "--------------------------------------------------------------------------
-" オートコマンド
-" 
-if has("autocmd")
-    " プラグイン、ファイルタイプ別インデントを有効
-    filetype plugin indent on
-    " textファイルのカラムを78に設定
-    autocmd FileType text setlocal textwidth=78
-    " カーソル位置を記憶しておく
-    autocmd BufReadPost *
-    \ if line("'\"") > 0 && line("'\"") <= line("$") |
-    \   exe "normal g`\"" |
-    \ endif
-	" 拡張子に対するfiletype設定
-	au BufNewFile,BufRead *.md set filetype=markdown
-
-	" 全角スペースの強調表示設定
-	augroup IdegraphicSpace
-		autocmd!
-		autocmd ColorScheme * highlight IdeographicSpace term=underline cterm=underline gui=underline ctermfg=LightGray guifg=LightGray
-		autocmd VimEnter,WinEnter * match IdeographicSpace /　/
-	augroup END
-	colorscheme default
-
-endif " has("autocmd")
-
-"--------------------------------------------------------------------------
-" 不可視文字の強調表示設定
+" ファイル読み込み時の設定
 "
-set lcs=eol:↲,tab:>.,extends:\
-set list
-highlight SpecialKey cterm=NONE ctermfg=LightGray guifg=LightGray
-highlight NonText cterm=NONE ctermfg=LightGray guifg=LightGray
+" プラグイン、ファイルタイプ別インデントを有効
+filetype plugin indent on
+" textファイルのカラムを78に設定
+autocmd FileType text setlocal textwidth=78
+" カーソル位置を記憶しておく
+autocmd BufReadPost *
+\ if line("'\"") > 0 && line("'\"") <= line("$") |
+\   exe "normal g`\"" |
+\ endif
+" 拡張子に対するfiletype設定
+au BufNewFile,BufRead *.md set filetype=markdown
 
 "--------------------------------------------------------------------------
 " Function定義
@@ -188,4 +171,46 @@ function! GetStatusEx()
     endif
     return str
 endfunction
+
+"--------------------------------------------------------------------------
+" 日本語関連
+"
+"日本語の行の連結時には空白を入力しない。
+set formatoptions+=mM
+"□や○の文字があってもカーソル位置がずれないようにする。
+set ambiwidth=double
+"画面最後の行をできる限り表示する。
+set display+=lastline
+
+"--------------------------------------------------------------------------
+" 文字表示関連
+"
+" 不可視文字の強調表示設定
+set lcs=eol:↲,tab:>.,extends:\
+set list
+
+" 全角スペースの強調表示設定
+augroup IdegraphicSpace
+	autocmd!
+	"autocmd ColorScheme * highlight IdeographicSpace term=underline cterm=underline gui=underline ctermfg=LightGray guifg=LightGray
+	autocmd VimEnter,WinEnter * match IdeographicSpace /　/
+augroup END
+
+"--------------------------------------------------------------------------
+" カラースキームの設定(CUI)
+"
+if has("mac")
+	colorscheme default
+	highlight SpecialKey cterm=NONE ctermfg=LightGray
+	highlight NonText cterm=NONE ctermfg=LightGray
+	highlight IdeographicSpace cterm=underline ctermfg=LightGray
+elseif has("unix")
+	" Cygwinもここ
+	colorscheme default
+	highlight IdeographicSpace cterm=underline ctermfg=Brown
+	highlight SpecialKey cterm=NONE ctermfg=Brown
+	highlight NonText cterm=NONE ctermfg=Brown
+elseif has("win32")
+elseif has("win64")
+endif
 
