@@ -6,12 +6,14 @@ if has("mac")
 elseif has("unix")
 elseif has("win32")
 	colorscheme solarized
-	set background=light
+	set background=dark
+	" F5でdark, light をチェンジ
+	call togglebg#map("<f5>")
 	"highlight Normal guifg=Black
-	highlight Cursor guibg=LightGray guifg=LightGray
-	highlight SpecialKey gui=NONE guifg=LightGray guibg=NONE
-	highlight NonText gui=NONE guifg=LightGray guibg=NONE
-	highlight IdeographicSpace gui=underline guifg=LightGray
+	"highlight Cursor guibg=LightGray guifg=LightGray
+	"highlight SpecialKey gui=NONE guifg=LightGray guibg=NONE
+	"highlight NonText gui=NONE guifg=LightGray guibg=NONE
+	"highlight IdeographicSpace gui=underline guifg=LightGray
 elseif has("win64")
 endif
 
