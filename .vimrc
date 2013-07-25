@@ -193,7 +193,7 @@ set list
 augroup IdegraphicSpace
 	autocmd!
 	" ColorSchemeを変更したときにも全角スペースを表示するようにautocmdを使う
-	autocmd ColorScheme * highlight IdeographicSpace term=underline cterm=underline gui=underline ctermfg=LightGray guifg=#657b83
+	autocmd ColorScheme * highlight IdeographicSpace term=underline cterm=underline gui=underline ctermfg=brown guifg=brown
 	autocmd VimEnter,WinEnter * match IdeographicSpace /　/
 augroup END
 
