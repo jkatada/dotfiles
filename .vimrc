@@ -28,6 +28,7 @@ NeoBundle 'mattn/zencoding-vim'
 NeoBundle 'tyru/open-browser.vim'
 NeoBundle 'thinca/vim-quickrun'
 NeoBundle 'kannokanno/previm'
+NeoBundle 'vim-scripts/buftabs'
 " solarized カラースキーム
 NeoBundle 'altercation/vim-colors-solarized'
   
@@ -54,6 +55,22 @@ let g:user_zen_settings = {
 \   'lang' : 'ja',
 \}
 
+"--------------------------------------------------------------------------
+" buftabs
+"
+" バッファタブにパスを省略してファイル名のみ表示する
+let g:buftabs_only_basename=1
+" バッファタブをステータスライン内に表示する
+let g:buftabs_in_statusline=1
+" 現在のバッファをハイライト
+let g:buftabs_active_highlight_group="Visual"
+" ステータスライン
+set statusline=%=\[%{(&fenc!=''?&fenc:&enc)}/%{&ff}]\[%03l,%03v]
+" ステータスラインを常に表示
+set laststatus=2
+" ステータスラインの色
+hi StatusLine   term=NONE cterm=NONE ctermfg=black ctermbg=white
+" 
 "--------------------------------------------------------------------------
 " 一般
 " 
@@ -85,12 +102,6 @@ set nolist
 set showcmd
 " 括弧入力時の対応する括弧を表示
 set showmatch
-" ステータスラインを常に表示
-set laststatus=2
-" ステータスラインに表示する情報の指定
-set statusline=%y%{GetStatusEx()}%F%m%r%=<%c:%l>
-" ステータスラインの色
-hi StatusLine   term=NONE cterm=NONE ctermfg=black ctermbg=white
 " ハイライト
 if &t_Co > 2 || has("gui_running")
     " シンタックスハイライトを有効にする
@@ -141,7 +152,9 @@ set nobackup
 "--------------------------------------------------------------------------
 " マップ定義
 " 
-" 今は何もなし
+"  バッファの移動
+noremap <f1> :bprev<CR>
+noremap <f2> :bnext<CR>
 
 "--------------------------------------------------------------------------
 " ファイル読み込み時の設定
@@ -157,20 +170,6 @@ autocmd BufReadPost *
 \ endif
 " 拡張子に対するfiletype設定
 au BufNewFile,BufRead *.md set filetype=markdown
-
-"--------------------------------------------------------------------------
-" Function定義
-" 
-" GetStatusEx
-" ステータス表示用function
-function! GetStatusEx()
-    let str = ''
-    let str = str . '[' . &fileformat . ']'
-    if has('multi_byte') && &fileencoding != ''
-    let str = '[' . &fileencoding . ':' . str
-    endif
-    return str
-endfunction
 
 "--------------------------------------------------------------------------
 " 日本語関連
