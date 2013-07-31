@@ -28,7 +28,7 @@ NeoBundle 'mattn/zencoding-vim'
 NeoBundle 'tyru/open-browser.vim'
 NeoBundle 'thinca/vim-quickrun'
 NeoBundle 'kannokanno/previm'
-NeoBundle 'vim-scripts/buftabs'
+"NeoBundle 'vim-scripts/buftabs'
 " solarized カラースキーム
 NeoBundle 'altercation/vim-colors-solarized'
   
@@ -59,17 +59,17 @@ let g:user_zen_settings = {
 " buftabs
 "
 " バッファタブにパスを省略してファイル名のみ表示する
-let g:buftabs_only_basename=1
+"let g:buftabs_only_basename=1
 " バッファタブをステータスライン内に表示する
-let g:buftabs_in_statusline=1
+"let g:buftabs_in_statusline=1
 " 現在のバッファをハイライト
-let g:buftabs_active_highlight_group="Visual"
+"let g:buftabs_active_highlight_group="Visual"
 " ステータスライン
-set statusline=%=\[%{(&fenc!=''?&fenc:&enc)}/%{&ff}]\[%03l,%03v]
+"set statusline=%=\[%{(&fenc!=''?&fenc:&enc)}/%{&ff}]\[%03l,%03v]
 " ステータスラインを常に表示
-set laststatus=2
+"set laststatus=2
 " ステータスラインの色
-hi StatusLine   term=NONE cterm=NONE ctermfg=black ctermbg=white
+"hi StatusLine   term=NONE cterm=NONE ctermfg=black ctermbg=white
 " 
 "--------------------------------------------------------------------------
 " 一般
@@ -109,6 +109,12 @@ if &t_Co > 2 || has("gui_running")
     " 検索結果文字列のハイライトを有効にする
     set hlsearch
 endif
+" ステータスライン
+set statusline=%F%m%r%h%w\%=\[%{(&fenc!=''?&fenc:&enc)}/%{&ff}][%Y]\[%03l,%03v][%p%%]
+" ステータスラインを常に表示
+set laststatus=2
+" ステータスラインの色
+hi StatusLine   term=NONE cterm=NONE ctermfg=black ctermbg=white
 "--------------------------------------------------------------------------
 " 編集、文書整形関連
 " 
@@ -218,3 +224,55 @@ elseif has("win32")
 elseif has("win64")
 endif
 
+"--------------------------------------------------------------------------
+"  タブ設定
+"
+" Anywhere SID.
+function! s:SID_PREFIX()
+  return matchstr(expand('<sfile>'), '<SNR>\d\+_\zeSID_PREFIX$')
+endfunction
+
+" Set tabline.
+function! s:my_tabline()  "{{{
+  let s = ''
+  for i in range(1, tabpagenr('$'))
+    let bufnrs = tabpagebuflist(i)
+    let bufnr = bufnrs[tabpagewinnr(i) - 1]  " first window, first appears
+    let no = i  " display 0-origin tabpagenr.
+    let mod = getbufvar(bufnr, '&modified') ? '!' : ' '
+    let title = fnamemodify(bufname(bufnr), ':t')
+    let title = '[' . title . ']'
+    let s .= '%'.i.'T'
+    let s .= '%#' . (i == tabpagenr() ? 'TabLineSel' : 'TabLine') . '#'
+    let s .= no . ':' . title
+    let s .= mod
+    let s .= '%#TabLineFill# '
+  endfor
+  let s .= '%#TabLineFill#%T%=%#TabLine#'
+  return s
+endfunction "}}}
+let &tabline = '%!'. s:SID_PREFIX() . 'my_tabline()'
+set showtabline=2 " 常にタブラインを表示
+
+" The prefix key.
+nnoremap    [Tag]   <Nop>
+nmap    t [Tag]
+" Tab jump
+for n in range(1, 9)
+  execute 'nnoremap <silent> [Tag]'.n  ':<C-u>tabnext'.n.'<CR>'
+endfor
+" t1 で1番左のタブ、t2 で1番左から2番目のタブにジャンプ
+
+" tc 新しいタブを一番右に作る
+map <silent> [Tag]c :tablast <bar> tabnew<CR>
+" tx タブを閉じる
+map <silent> [Tag]x :tabclose<CR>
+" tn 次のタブ
+map <silent> [Tag]n :tabnext<CR>
+" tp 前のタブ
+map <silent> [Tag]p :tabprevious<CR>
+
+" ドラッグアンドドロップでもタブで開く
+" 挙動が妙になるので保留
+"autocmd VimEnter * tab all
+"autocmd BufAdd * exe 'tablast | tabe "' . expand( "<afile") .'"'

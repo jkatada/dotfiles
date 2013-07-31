@@ -25,6 +25,20 @@ Windows XP
 	fsutil hardlink create .vimrc dotfiles/.vimrc
 	fsutil hardlink create .gvimrc dotfiles/.gvimrc
 
+### gvim shortcut
+
+gvim option for shortcut
+
+	-p --remote-tab-silent FILE
+
+gvim option for SentTo shortcut
+
+	-p --remote-tab-silent
+ 
+gvim option for file association shortcut
+
+	-p --remote-tab-silent "%1"
+
 
 Linux, Mac, etc
 ---------------
