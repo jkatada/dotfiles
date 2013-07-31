@@ -1,22 +1,11 @@
 Install
 =======
 
-Linux, Mac, etc
----------------
+Prepare
+--------
 
-	# git clone
-	cd
-	git clone https://github.com/jkatada/dotfiles
-	
-	# git clone NeoBundle
-	cd dotfiles
-	git submodule init
-	git submodule update
-	
-	# create .vimrc synbolic link
-	cd
-	ln -s dotfiles/.vimrc .vimrc
-	ln -s dotfiles/.gvimrc .gvimrc
+	# [git] set autoCRLF false
+	git config --global core.autocrlf false
 
 
 Windows XP
@@ -31,8 +20,26 @@ Windows XP
 	git submodule init
 	git submodule update
 	
-	# create .vimrc hard link
+	# create hard link
 	cd %HOMEPATH%
 	fsutil hardlink create .vimrc dotfiles/.vimrc
 	fsutil hardlink create .gvimrc dotfiles/.gvimrc
+
+
+Linux, Mac, etc
+---------------
+
+	# git clone
+	cd
+	git clone https://github.com/jkatada/dotfiles
+	
+	# git clone NeoBundle
+	cd dotfiles
+	git submodule init
+	git submodule update
+	
+	# create synbolic link
+	cd
+	ln -s dotfiles/.vimrc .vimrc
+	ln -s dotfiles/.gvimrc .gvimrc
 
