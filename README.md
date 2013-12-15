@@ -7,6 +7,24 @@ Prepare
 	# [git] set autoCRLF false
 	git config --global core.autocrlf false
 
+Windows 7
+----------
+
+	# git clone
+	cd %HOMEPATH%
+	git clone https://github.com/jkatada/dotfiles
+	
+	# git clone NeoBundle
+	cd dotfiles
+	git submodule init
+	git submodule update
+	
+	# create symbolic link
+	# command prompt as an Administrator
+	cd %HOMEPATH%
+	mklink ".vimrc" "dotfiles\.vimrc"
+	mklink ".gvimrc" "dotfiles\.gvimrc"
+
 
 Windows XP
 ----------
