@@ -24,7 +24,7 @@ call neobundle#rc(expand('~/dotfiles/vimfiles/bundle/'))
 
 NeoBundleFetch 'Shougo/neobundle.vim'
 NeoBundle 'Shougo/vimproc'
-NeoBundle 'mattn/zencoding-vim'
+NeoBundle 'mattn/emmet-vim'
 NeoBundle 'tyru/open-browser.vim'
 NeoBundle 'thinca/vim-quickrun'
 NeoBundle 'kannokanno/previm'
@@ -48,10 +48,10 @@ nmap <Leader>w <Plug>(openbrowser-smart-search)
 let g:quickrun_config = {}
  
 "--------------------------------------------------------------------------
-" zencoding
+" emmet
 " 
 " 生成されるHTMLのlangをjaに設定(デフォルトはen)
-let g:user_zen_settings = {
+let g:user_emmet_settings = {
 \   'lang' : 'ja',
 \}
 
