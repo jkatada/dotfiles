@@ -132,10 +132,12 @@ set shiftwidth=4
 " Tabキー使用時にTabでは無くホワイトスペースを入れたい時に使用する
 " この値が0以外の時はtabstopの設定が無効になる
 set softtabstop=0
-" Tab文字を空白に置き換えない
-set noexpandtab
+" Tab文字を空白に置き換える
+set expandtab
 " オートインデントを有効にする
 set cindent
+" ヤンクでクリップボードにコピー
+set clipboard=unnamed
 "--------------------------------------------------------------------------
 " ファイル関連
 " 
