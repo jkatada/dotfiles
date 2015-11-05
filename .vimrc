@@ -23,7 +23,9 @@ endif
 call neobundle#rc(expand('~/dotfiles/vimfiles/bundle/'))
 
 NeoBundleFetch 'Shougo/neobundle.vim'
+NeoBundle 'Shougo/unite.vim'
 NeoBundle 'Shougo/vimproc'
+NeoBundle 'Shougo/vimfiler'
 NeoBundle 'mattn/emmet-vim'
 NeoBundle 'tyru/open-browser.vim'
 NeoBundle 'thinca/vim-quickrun'
@@ -35,6 +37,12 @@ NeoBundle 'altercation/vim-colors-solarized'
 "filetype plugin indent on
 
 NeoBundleCheck
+
+"--------------------------------------------------------------------------
+" vimfiler
+"
+" netrwの代わりにVimFilerをデフォルトで起動する
+let g:vimfiler_as_default_explorer = 1
 
 "--------------------------------------------------------------------------
 " open-browser
