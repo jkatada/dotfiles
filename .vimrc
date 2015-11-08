@@ -43,6 +43,8 @@ NeoBundleCheck
 "
 " netrwの代わりにVimFilerをデフォルトで起動する
 let g:vimfiler_as_default_explorer = 1
+" セーフモードをデフォルトでオフにする
+let g:vimfiler_safe_mode_by_default = 0
 
 "--------------------------------------------------------------------------
 " open-browser
