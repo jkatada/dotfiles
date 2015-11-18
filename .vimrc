@@ -45,6 +45,8 @@ NeoBundleCheck
 let g:vimfiler_as_default_explorer = 1
 " セーフモードをデフォルトでオフにする
 let g:vimfiler_safe_mode_by_default = 0
+" :Unite bookmark を VimFilerで開く
+call unite#custom_default_action('source/bookmark/directory' , 'vimfiler')
 
 "--------------------------------------------------------------------------
 " open-browser
