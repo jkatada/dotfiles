@@ -2,5 +2,3 @@
 set tabstop=2
 " cindentやautoindent時に挿入されるタブの幅
 set shiftwidth=2
-" オートインデントを有効にする
-set cindent
