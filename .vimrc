@@ -30,6 +30,7 @@ NeoBundle 'mattn/emmet-vim'
 NeoBundle 'tyru/open-browser.vim'
 NeoBundle 'thinca/vim-quickrun'
 NeoBundle 'kannokanno/previm'
+NeoBundle 'othree/eregex.vim'
 "NeoBundle 'vim-scripts/buftabs'
 " solarized カラースキーム
 NeoBundle 'altercation/vim-colors-solarized'
@@ -182,6 +183,11 @@ set nobackup
 "  バッファの移動
 noremap <f1> :bprev<CR>
 noremap <f2> :bnext<CR>
+" for exregex.vim
+nnoremap / :M/
+nnoremap ? :M?
+nnoremap ,/ /
+nnoremap ,? ?
 
 "--------------------------------------------------------------------------
 " ファイル読み込み時の設定
