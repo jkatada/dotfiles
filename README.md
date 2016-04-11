@@ -10,7 +10,7 @@ Prepare
 Windows 7
 ----------
 
-	# clone git repository
+	# clone dotfiles
 	cd %HOMEPATH%
 	git clone https://github.com/jkatada/dotfiles
 	
