@@ -305,3 +305,20 @@ map <silent> [Tag]p :tabprevious<CR>
 " 挙動が妙になるので保留
 "autocmd VimEnter * tab all
 "autocmd BufAdd * exe 'tablast | tabe "' . expand( "<afile") .'"'
+
+"--------------------------------------------------------------------------
+"  セッション設定
+"
+" Vim終了時に現在のセッションを保存する
+au VimLeave * mks!  ~/vimsession
+
+"引数なし起動の時でセッションファイルが存在する場合、前回のsessionを復元
+autocmd VimEnter * nested if @% == '' && s:GetBufByte() == 0 && filereadable(expand("~/vimsession")) | source ~/vimsession | endif
+function! s:GetBufByte()
+    let byte = line2byte(line('$') + 1)
+    if byte == -1
+        return 0
+    else
+        return byte - 1
+    endif
+endfunction
