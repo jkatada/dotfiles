@@ -10,11 +10,11 @@ Prepare
 Windows 7
 ----------
 
-	# git clone
+	# clone git repository
 	cd %HOMEPATH%
 	git clone https://github.com/jkatada/dotfiles
 	
-	# git clone NeoBundle
+	# clone NeoBundle
 	cd dotfiles
 	git submodule init
 	git submodule update
@@ -29,11 +29,11 @@ Windows 7
 Windows XP
 ----------
 
-	# git clone
+	# clone dotfiles
 	cd %HOMEPATH%
 	git clone https://github.com/jkatada/dotfiles
 	
-	# git clone NeoBundle
+	# clone NeoBundle
 	cd dotfiles
 	git submodule init
 	git submodule update
@@ -47,7 +47,7 @@ Windows XP
 
 gvim option for shortcut
 
-	-p --remote-tab-silent FILE
+	-p
 
 gvim option for SentTo shortcut
 
@@ -61,11 +61,11 @@ gvim option for file association shortcut
 Linux, Mac, etc
 ---------------
 
-	# git clone
+	# clone dotfiles
 	cd
 	git clone https://github.com/jkatada/dotfiles
 	
-	# git clone NeoBundle
+	# clone NeoBundle
 	cd dotfiles
 	git submodule init
 	git submodule update
