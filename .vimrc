@@ -11,6 +11,10 @@ set runtimepath+=$HOME/dotfiles/vimfiles,$HOME/dotfiles/vimfiles/after
 scriptencoding utf-8
 
 "--------------------------------------------------------------------------
+" VimProcのWindowsバイナリを自動でダウンロードする。VimProcより前に設定が必要
+let g:vimproc#download_windows_dll = 1
+
+"--------------------------------------------------------------------------
 " NeoBundle
 "
 " Note: Skip initialization for vim-tiny or vim-small.
