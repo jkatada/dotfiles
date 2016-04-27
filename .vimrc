@@ -13,6 +13,13 @@ scriptencoding utf-8
 "--------------------------------------------------------------------------
 " NeoBundle
 "
+" Note: Skip initialization for vim-tiny or vim-small.
+if 0 | endif
+
+if &compatible
+   set nocompatible               " Be iMproved
+endif
+
 " プロキシ内環境を考慮してプロトコルをgit://からhttps://に変更
 let g:neobundle_default_git_protocol='https'
 
@@ -20,11 +27,19 @@ if has('vim_starting')
     set runtimepath+=~/dotfiles/vimfiles/bundle/neobundle.vim/
 endif
 
-call neobundle#rc(expand('~/dotfiles/vimfiles/bundle/'))
+call neobundle#begin(expand('~/dotfiles/vimfiles/bundle/'))
 
 NeoBundleFetch 'Shougo/neobundle.vim'
 NeoBundle 'Shougo/unite.vim'
-NeoBundle 'Shougo/vimproc'
+NeoBundle 'Shougo/vimproc', {
+\ 'build' : {
+\     'windows' : 'tools\\update-dll-mingw',
+\     'cygwin' : 'make -f make_cygwin.mak',
+\     'mac' : 'make -f make_mac.mak',
+\     'linux' : 'make',
+\     'unix' : 'gmake',
+\    },
+\ }
 NeoBundle 'Shougo/vimfiler'
 NeoBundle 'mattn/emmet-vim'
 NeoBundle 'tyru/open-browser.vim'
@@ -34,8 +49,10 @@ NeoBundle 'othree/eregex.vim'
 "NeoBundle 'vim-scripts/buftabs'
 " solarized カラースキーム
 NeoBundle 'altercation/vim-colors-solarized'
+
+call neobundle#end()
   
-"filetype plugin indent on
+filetype plugin indent on
 
 NeoBundleCheck
 
