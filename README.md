@@ -75,3 +75,29 @@ Linux, Mac, etc
 	ln -s dotfiles/.vimrc .vimrc
 	ln -s dotfiles/.gvimrc .gvimrc
 
+Update
+=======
+
+NeoBundle
+----------
+
+### Windows
+
+	cd %HOMEPATH%
+	cd dotfiles
+	git submodule foreach git pull origin master
+
+### Linux, Mac, etc
+
+	cd
+	cd dotfiles
+	git submodule foreach git pull origin master
+
+
+NeoBundle Plugins
+-----------------
+
+vim command
+
+    :NeoBundleUpdate
+
