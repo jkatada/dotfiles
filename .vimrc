@@ -73,8 +73,10 @@ call unite#custom_default_action('source/bookmark/directory' , 'vimfiler')
 "--------------------------------------------------------------------------
 " open-browser
 "
-" \wでカーソル下のURLを開く
-nmap <Leader>w <Plug>(openbrowser-smart-search)
+" gxでカーソル下のURLを開く、または単語を検索
+let g:netrw_nogx = 1 " netrwのgx(ULRを開く)を無効化
+nmap gx <Plug>(openbrowser-smart-search)
+vmap gx <Plug>(openbrowser-smart-search) 
 
 "--------------------------------------------------------------------------
 " vim-quickrun
