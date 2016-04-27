@@ -79,7 +79,11 @@ Update
 =======
 
 NeoBundle
+<<<<<<< HEAD
 ---------
+=======
+----------
+>>>>>>> 3fc7c994d7986caf2801150adafd1b5949e5058d
 
 ### Windows
 
