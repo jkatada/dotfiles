@@ -35,7 +35,7 @@ if has('win32')
     set ambiwidth=auto
   endif
 elseif has('mac')
-  set guifont=Osaka－等幅:h14
+  set guifont=Osaka-Mono:h14
   " 行間隔の設定
   set linespace=1
 elseif has('xfontset')
