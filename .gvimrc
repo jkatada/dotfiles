@@ -38,10 +38,6 @@ elseif has('mac')
   set guifont=Osaka－等幅:h14
   " 行間隔の設定
   set linespace=1
-  " 一部のUCS文字の幅を自動計測して決める
-  if has('kaoriya')
-    set ambiwidth=auto
-  endif
 elseif has('xfontset')
   " UNIX用 (xfontsetを使用)
   set guifontset=a14,r14,k14

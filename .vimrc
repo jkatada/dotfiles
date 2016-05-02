@@ -251,26 +251,37 @@ augroup IdegraphicSpace
 	autocmd!
 	" ColorSchemeを変更したときにも全角スペースを表示するようにautocmdを使う
 	autocmd ColorScheme * highlight IdeographicSpace term=underline cterm=underline gui=underline ctermfg=brown guifg=brown
-	autocmd VimEnter,WinEnter * match IdeographicSpace /　/
+    autocmd VimEnter,WinEnter * match IdeographicSpace /　/
 augroup END
 
 "--------------------------------------------------------------------------
 " カラースキームの設定(CUI)
 "
 if has("mac")
+    if has("gui_running")
+        " MacのGUIは.gvimrcで設定するが、ここでcolorschemeを設定しないとエラーが
+        " でる
+        colorscheme default
+    else
+        " MacのCUI設定
+        set background=dark
+        colorscheme solarized
+        let g:solarized_termcolors=256
+        " F5でdark, light をチェンジ
+        call togglebg#map("<f5>")
+        "highlight SpecialKey cterm=NONE ctermfg=LightGray
+        "highlight NonText cterm=NONE ctermfg=LightGray
+    endif
 elseif has("unix")
 	if $TERM == "cygwin"
 		" Cygwin
 		colorscheme default
 		highlight SpecialKey cterm=NONE ctermfg=Brown
 		highlight NonText cterm=NONE ctermfg=Brown
-		"highlight IdeographicSpace cterm=underline ctermfg=Brown
 	else
-		" MacのVimはここ
 		colorscheme default
 		highlight SpecialKey cterm=NONE ctermfg=LightGray
 		highlight NonText cterm=NONE ctermfg=LightGray
-		"highlight IdeographicSpace cterm=underline ctermfg=LightGray
 	endif
 elseif has("win32")
 elseif has("win64")
