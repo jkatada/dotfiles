@@ -3,6 +3,10 @@ scriptencoding utf-8
 " カラースキームの設定(GUI)
 "
 if has("mac")
+	colorscheme solarized
+	set background=dark
+	" F5でdark, light をチェンジ
+	call togglebg#map("<f5>")
 elseif has("unix")
 elseif has("win32")
 	colorscheme solarized
@@ -31,7 +35,9 @@ if has('win32')
     set ambiwidth=auto
   endif
 elseif has('mac')
-  set guifont=Osaka－等幅:h14
+  set guifont=Osaka-Mono:h14
+  " 行間隔の設定
+  set linespace=1
 elseif has('xfontset')
   " UNIX用 (xfontsetを使用)
   set guifontset=a14,r14,k14

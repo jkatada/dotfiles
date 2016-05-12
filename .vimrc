@@ -251,26 +251,37 @@ augroup IdegraphicSpace
 	autocmd!
 	" ColorSchemeを変更したときにも全角スペースを表示するようにautocmdを使う
 	autocmd ColorScheme * highlight IdeographicSpace term=underline cterm=underline gui=underline ctermfg=brown guifg=brown
-	autocmd VimEnter,WinEnter * match IdeographicSpace /　/
+    autocmd VimEnter,WinEnter * match IdeographicSpace /　/
 augroup END
 
 "--------------------------------------------------------------------------
 " カラースキームの設定(CUI)
 "
 if has("mac")
+    if has("gui_running")
+        " MacのGUIは.gvimrcで設定するが、ここでcolorschemeを設定しないとエラーが
+        " でる
+        colorscheme default
+    else
+        " MacのCUI設定
+        set background=dark
+        colorscheme solarized
+        let g:solarized_termcolors=256
+        " F5でdark, light をチェンジ
+        call togglebg#map("<f5>")
+        "highlight SpecialKey cterm=NONE ctermfg=LightGray
+        "highlight NonText cterm=NONE ctermfg=LightGray
+    endif
 elseif has("unix")
 	if $TERM == "cygwin"
 		" Cygwin
 		colorscheme default
 		highlight SpecialKey cterm=NONE ctermfg=Brown
 		highlight NonText cterm=NONE ctermfg=Brown
-		"highlight IdeographicSpace cterm=underline ctermfg=Brown
 	else
-		" MacのVimはここ
 		colorscheme default
 		highlight SpecialKey cterm=NONE ctermfg=LightGray
 		highlight NonText cterm=NONE ctermfg=LightGray
-		"highlight IdeographicSpace cterm=underline ctermfg=LightGray
 	endif
 elseif has("win32")
 elseif has("win64")
@@ -332,16 +343,19 @@ map <silent> [Tag]p :tabprevious<CR>
 "--------------------------------------------------------------------------
 "  セッション設定
 "
-" Vim終了時に現在のセッションを保存する
-au VimLeave * mks!  ~/vimsession
+" GUIのVIMのみセッションの読み込み・保存を行う
+if has("gui_running")
+    " Vim終了時に現在のセッションを保存する
+    au VimLeave * mks!  ~/vimsession
 
-"引数なし起動の時でセッションファイルが存在する場合、前回のsessionを復元
-autocmd VimEnter * nested if @% == '' && s:GetBufByte() == 0 && filereadable(expand("~/vimsession")) | source ~/vimsession | endif
-function! s:GetBufByte()
-    let byte = line2byte(line('$') + 1)
-    if byte == -1
-        return 0
-    else
-        return byte - 1
-    endif
-endfunction
+    "引数なし起動の時でセッションファイルが存在する場合、前回のsessionを復元
+    autocmd VimEnter * nested if @% == '' && s:GetBufByte() == 0 && filereadable(expand("~/vimsession")) | source ~/vimsession | endif
+    function! s:GetBufByte()
+        let byte = line2byte(line('$') + 1)
+        if byte == -1
+            return 0
+        else
+            return byte - 1
+        endif
+    endfunction
+endif
