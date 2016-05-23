@@ -9,6 +9,8 @@ set nocompatible
 set runtimepath+=$HOME/dotfiles/vimfiles,$HOME/dotfiles/vimfiles/after
 " スクリプト内のエンコーディング設定
 scriptencoding utf-8
+" undoファイルを一箇所にまとめる
+set undodir=$HOME/dotfiles/vimfiles/undodir
 
 "--------------------------------------------------------------------------
 " VimProcのWindowsバイナリを自動でダウンロードする。VimProcより前に設定が必要

@@ -1,4 +1,6 @@
 /vimfiles/bundle/
+/vimfiles/undodir/*
+!.gitkeep
 
 *.un~
 *.swp
