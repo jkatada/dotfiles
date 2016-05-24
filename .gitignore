@@ -1,6 +1,9 @@
 /vimfiles/bundle/
-/vimfiles/undodir/*
+/vimfiles/tmp/backup/*
+/vimfiles/tmp/swap/*
+/vimfiles/tmp/undodir/*
 !.gitkeep
 
+*~
 *.un~
 *.swp

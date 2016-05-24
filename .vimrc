@@ -9,8 +9,6 @@ set nocompatible
 set runtimepath+=$HOME/dotfiles/vimfiles,$HOME/dotfiles/vimfiles/after
 " スクリプト内のエンコーディング設定
 scriptencoding utf-8
-" undoファイルを一箇所にまとめる
-set undodir=$HOME/dotfiles/vimfiles/undodir
 
 "--------------------------------------------------------------------------
 " VimProcのWindowsバイナリを自動でダウンロードする。VimProcより前に設定が必要
@@ -188,9 +186,12 @@ set clipboard=unnamed
 "--------------------------------------------------------------------------
 " ファイル関連
 " 
-" nobackup
-" バックアップファイルを作成しない
-set nobackup
+" バックアップファイルを一箇所にまとめる
+set backupdir=$HOME/dotfiles/vimfiles/tmp/backup
+" スワップファイルを一箇所にまとめる
+set directory=$HOME/dotfiles/vimfiles/tmp/swap
+" undoファイルを一箇所にまとめる
+set undodir=$HOME/dotfiles/vimfiles/tmp/undodir
 "--------------------------------------------------------------------------
 " 国際化関連
 " 
