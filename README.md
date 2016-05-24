@@ -25,23 +25,10 @@ Windows 7
 	mklink ".vimrc" "dotfiles\.vimrc"
 	mklink ".gvimrc" "dotfiles\.gvimrc"
 
-
-Windows XP
-----------
-
-	# clone dotfiles
-	cd %HOMEPATH%
-	git clone https://github.com/jkatada/dotfiles
-	
-	# clone NeoBundle
-	cd dotfiles
-	git submodule init
-	git submodule update
-	
-	# create hard link
-	cd %HOMEPATH%
-	fsutil hardlink create .vimrc dotfiles/.vimrc
-	fsutil hardlink create .gvimrc dotfiles/.gvimrc
+### for VimFiler (rm, cp, etc...)
+    
+1. Install Cygwin.
+2. Add path of Cygwin bin directory to PATH environment variable.
 
 ### gvim shortcut
 
