@@ -44,6 +44,10 @@ gvim option for file association shortcut
 
 	-p --remote-tab-silent "%1"
 
+### Change keyboard mapping
+
+Double click `Windows/Swap_RCtrl_Caps-Win7.reg` file and install.
+
 
 Linux, Mac, etc
 ---------------
