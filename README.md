@@ -25,7 +25,7 @@ Windows 7
 	mklink ".vimrc" "dotfiles\.vimrc"
 	mklink ".gvimrc" "dotfiles\.gvimrc"
 
-### for VimFiler (rm, cp, etc...)
+### for VimFiler (rm.exe, cp.exe, etc...)
     
 1. Install Cygwin.
 2. Add path of Cygwin bin directory to PATH environment variable.
