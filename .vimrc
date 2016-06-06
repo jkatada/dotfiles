@@ -251,9 +251,9 @@ set list
 
 " 全角スペースの強調表示設定
 augroup IdegraphicSpace
-	autocmd!
-	" ColorSchemeを変更したときにも全角スペースを表示するようにautocmdを使う
-	autocmd ColorScheme * highlight IdeographicSpace term=underline cterm=underline gui=underline ctermfg=brown guifg=brown
+    autocmd!
+    " ColorSchemeを変更したときにも全角スペースを表示するようにautocmdを使う
+    autocmd ColorScheme * highlight IdeographicSpace term=underline cterm=underline gui=underline ctermfg=brown guifg=brown
     autocmd VimEnter,WinEnter * match IdeographicSpace /　/
 augroup END
 
@@ -276,16 +276,16 @@ if has("mac")
         "highlight NonText cterm=NONE ctermfg=LightGray
     endif
 elseif has("unix")
-	if $TERM == "cygwin"
-		" Cygwin
-		colorscheme default
-		highlight SpecialKey cterm=NONE ctermfg=Brown
-		highlight NonText cterm=NONE ctermfg=Brown
-	else
-		colorscheme default
-		highlight SpecialKey cterm=NONE ctermfg=LightGray
-		highlight NonText cterm=NONE ctermfg=LightGray
-	endif
+    if $TERM == "cygwin"
+        " Cygwin
+        colorscheme default
+        highlight SpecialKey cterm=NONE ctermfg=Brown
+        highlight NonText cterm=NONE ctermfg=Brown
+    else
+        colorscheme default
+        highlight SpecialKey cterm=NONE ctermfg=LightGray
+        highlight NonText cterm=NONE ctermfg=LightGray
+    endif
 elseif has("win32")
 elseif has("win64")
 endif
