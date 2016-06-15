@@ -234,6 +234,8 @@ autocmd BufReadPost *
 \ endif
 " 拡張子に対するfiletype設定
 au BufNewFile,BufRead *.md set filetype=markdown
+" markdownで、アンダーバーやアスタリスクによるイタリック強調を解除
+autocmd! FileType markdown hi! def link markdownItalic Normal
 
 "--------------------------------------------------------------------------
 " 日本語関連
