@@ -234,8 +234,10 @@ autocmd BufReadPost *
 \ endif
 " 拡張子に対するfiletype設定
 au BufNewFile,BufRead *.md set filetype=markdown
-" markdownで、アンダーバーやアスタリスクによるイタリック強調を解除
+" markdownで、アンダースコアやアスタリスクによるイタリック強調を解除
 autocmd! FileType markdown hi! def link markdownItalic Normal
+" markdownで、アンダースコアに色がつかないように設定
+autocmd! FileType markdown hi! def link markdownError Normal
 
 "--------------------------------------------------------------------------
 " 日本語関連
