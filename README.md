@@ -72,17 +72,24 @@ Update
 NeoBundle
 ----------
 
-### Windows
+### Update and Push
 
-	cd %HOMEPATH%
-	cd dotfiles
-	git submodule foreach git pull origin master
-
-### Linux, Mac, etc
-
+        # move to home directory (Windows: cd %HOMEPATH% )
 	cd
+	
 	cd dotfiles
 	git submodule foreach git pull origin master
+	
+After execution of the above command execute "git add", "git commit" and "git push".
+
+### Pull and Update (on other repository)
+
+        # move to home directory (Windows: cd %HOMEPATH% )
+	cd
+	
+	cd dotfiles
+	git pull
+	git submodule update
 
 
 NeoBundle Plugins
