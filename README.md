@@ -74,7 +74,7 @@ NeoBundle
 
 ### Update and Push
 
-        # move to home directory (Windows: cd %HOMEPATH% )
+	# move to home directory (Windows: cd %HOMEPATH% )
 	cd
 	
 	cd dotfiles
@@ -84,7 +84,7 @@ After execution of the above command execute "git add", "git commit" and "git pu
 
 ### Pull and Update (on other repository)
 
-        # move to home directory (Windows: cd %HOMEPATH% )
+	# move to home directory (Windows: cd %HOMEPATH% )
 	cd
 	
 	cd dotfiles
