@@ -80,7 +80,7 @@ NeoBundle
 	cd dotfiles
 	git submodule foreach git pull origin master
 	
-After execution of the above command execute "git add", "git commit" and "git push".
+After execution of the above command, execute "git add", "git commit" and "git push".
 
 ### Pull and Update (on other repository)
 
