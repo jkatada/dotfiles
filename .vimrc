@@ -232,12 +232,16 @@ autocmd BufReadPost *
 \ if line("'\"") > 0 && line("'\"") <= line("$") |
 \   exe "normal g`\"" |
 \ endif
-" 拡張子に対するfiletype設定
-au BufNewFile,BufRead *.md set filetype=markdown
-" markdownで、アンダースコアやアスタリスクによるイタリック強調を解除
-autocmd! FileType markdown hi! def link markdownItalic Normal
-" markdownで、アンダースコアに色がつかないように設定
-autocmd! FileType markdown hi! def link markdownError Normal
+
+augroup Markdown
+    autocmd!
+    " 拡張子に対するfiletype設定
+    au BufNewFile,BufRead *.md set filetype=markdown
+    " markdownで、アンダースコアやアスタリスクによるイタリック強調を解除
+    autocmd FileType markdown hi! def link markdownItalic Normal
+    " markdownで、アンダースコアに色がつかないように設定
+    autocmd FileType markdown hi! def link markdownError Normal
+augroup END
 
 "--------------------------------------------------------------------------
 " 日本語関連
