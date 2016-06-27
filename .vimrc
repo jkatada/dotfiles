@@ -48,6 +48,7 @@ NeoBundle 'Shougo/vimfiler'
 NeoBundle 'mattn/emmet-vim'
 NeoBundle 'tyru/open-browser.vim'
 NeoBundle 'thinca/vim-quickrun'
+NeoBundle 'thinca/vim-fontzoom'
 NeoBundle 'kannokanno/previm'
 NeoBundle 'othree/eregex.vim'
 "NeoBundle 'vim-scripts/buftabs'
@@ -219,6 +220,9 @@ nnoremap / :M/
 nnoremap ? :M?
 nnoremap ,/ /
 nnoremap ,? ?
+" for fontzoom
+nnoremap + :Fontzoom +1<CR>
+nnoremap - :Fontzoom -1<CR>
 
 "--------------------------------------------------------------------------
 " ファイル読み込み時の設定
