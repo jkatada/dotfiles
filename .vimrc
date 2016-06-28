@@ -221,8 +221,8 @@ nnoremap ? :M?
 nnoremap ,/ /
 nnoremap ,? ?
 " for fontzoom
-nnoremap + :Fontzoom +1<CR>
-nnoremap - :Fontzoom -1<CR>
+nnoremap <C-Up> :Fontzoom +1<CR>
+nnoremap <C-Down> :Fontzoom -1<CR>
 
 "--------------------------------------------------------------------------
 " ファイル読み込み時の設定
