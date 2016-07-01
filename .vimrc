@@ -215,6 +215,8 @@ set undodir=$HOME/dotfiles/vimfiles/tmp/undodir
 "  バッファの移動
 noremap <f1> :bprev<CR>
 noremap <f2> :bnext<CR>
+" markdownハイライトをオンにする
+noremap <f4> :set filetype=markdown<CR>
 " for exregex.vim
 nnoremap / :M/
 nnoremap ? :M?
