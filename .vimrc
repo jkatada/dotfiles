@@ -100,6 +100,13 @@ let g:user_emmet_settings = {
 :source $VIMRUNTIME/macros/matchit.vim
 
 "--------------------------------------------------------------------------
+" for eregex.vim
+nnoremap / :M/
+nnoremap ? :M?
+nnoremap ,/ /
+nnoremap ,? ?
+
+"--------------------------------------------------------------------------
 " Fontzoom
 " デフォルトのキーマップを無効化
 let g:fontzoom_no_default_key_mappings = 1 
@@ -228,11 +235,6 @@ noremap <f1> :bprev<CR>
 noremap <f2> :bnext<CR>
 " markdownハイライトをオンにする
 noremap <f4> :set filetype=markdown<CR>
-" for exregex.vim
-nnoremap / :M/
-nnoremap ? :M?
-nnoremap ,/ /
-nnoremap ,? ?
 
 "--------------------------------------------------------------------------
 " ファイル読み込み時の設定
