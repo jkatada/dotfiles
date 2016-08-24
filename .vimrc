@@ -89,9 +89,10 @@ let g:quickrun_config = {}
 " 
 " 生成されるHTMLのlangをjaに設定(デフォルトはen)
 let g:user_emmet_settings = {
-\   'lang' : 'ja',
+\    'variables' : {
+\        'lang' : 'ja',
+\    },
 \}
-
 "--------------------------------------------------------------------------
 " matchit
 "
