@@ -19,8 +19,7 @@ Windows 7
 	git submodule init
 	git submodule update
 	
-	# create symbolic link
-	# command prompt as an Administrator
+	# create symbolic link (Use command prompt as an administrator)
 	cd %HOMEPATH%
 	mklink ".vimrc" "dotfiles\.vimrc"
 	mklink ".gvimrc" "dotfiles\.gvimrc"
