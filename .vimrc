@@ -390,3 +390,10 @@ if has("gui_running")
         endif
     endfunction
 endif
+
+"--------------------------------------------------------------------------
+"  マシンごとのローカル設定読み込み
+"
+if filereadable(expand($HOME.'/.localsetting/vimrc_local'))
+  source $HOME/.localsetting/vimrc_local
+endif
