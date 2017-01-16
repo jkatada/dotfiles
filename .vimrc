@@ -236,6 +236,8 @@ noremap <f1> :bprev<CR>
 noremap <f2> :bnext<CR>
 " markdownハイライトをオンにする
 noremap <f4> :set filetype=markdown<CR>
+" PrevimOpenを起動
+noremap <f7> :PrevimOpen<CR>
 
 "--------------------------------------------------------------------------
 " ファイル読み込み時の設定
@@ -389,4 +391,11 @@ if has("gui_running")
             return byte - 1
         endif
     endfunction
+endif
+
+"--------------------------------------------------------------------------
+"  マシンごとのローカル設定読み込み
+"
+if filereadable(expand($HOME.'/.localsetting/vimrc_local'))
+  source $HOME/.localsetting/vimrc_local
 endif
