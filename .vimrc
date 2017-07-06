@@ -108,17 +108,6 @@ nnoremap ,/ /
 nnoremap ,? ?
 
 "--------------------------------------------------------------------------
-" Fontzoom
-" デフォルトのキーマップを無効化
-let g:fontzoom_no_default_key_mappings = 1 
-" Ctrl-↑、Ctrl-↓ で拡大縮小
-nnoremap <C-Up> :Fontzoom +1<CR>
-nnoremap <C-Down> :Fontzoom -1<CR>
-" ホイールでの拡大縮小(Windowsでは動かない)
-nnoremap <C-ScrollWheelUp> :Fontzoom +1<CR>
-nnoremap <C-ScrollWheelDown> :Fontzoom -1<CR>
-
-"--------------------------------------------------------------------------
 " buftabs
 "
 " バッファタブにパスを省略してファイル名のみ表示する
