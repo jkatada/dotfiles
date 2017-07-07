@@ -21,7 +21,7 @@ let g:vimproc#download_windows_dll = 1
 if 0 | endif
 
 if &compatible
-   set nocompatible               " Be iMproved
+   set nocompatible
 endif
 
 " プロキシ内環境を考慮してプロトコルをgit://からhttps://に変更
@@ -52,7 +52,6 @@ NeoBundle 'thinca/vim-fontzoom'
 NeoBundle 'kannokanno/previm'
 NeoBundle 'othree/eregex.vim'
 "NeoBundle 'vim-scripts/buftabs'
-" solarized カラースキーム
 NeoBundle 'altercation/vim-colors-solarized'
 
 call neobundle#end()
@@ -93,6 +92,7 @@ let g:user_emmet_settings = {
 \        'lang' : 'ja',
 \    },
 \}
+
 "--------------------------------------------------------------------------
 " matchit
 "
@@ -130,6 +130,7 @@ nnoremap ,? ?
 set history=50
 " 起動画面を表示しない
 set shortmess+=I
+
 "--------------------------------------------------------------------------
 " 検索関連
 " 
@@ -141,6 +142,7 @@ set smartcase
 set nowrapscan
 " 検索文字列入力時に順次対象文字列にヒットさせない
 set noincsearch
+
 "--------------------------------------------------------------------------
 " 装飾関連
 " 
@@ -169,6 +171,7 @@ set statusline=%F%m%r%h%w\%=\[%{(&fenc!=''?&fenc:&enc)}/%{&ff}][%Y]\[%03l,%03v][
 set laststatus=2
 " ステータスラインの色
 hi StatusLine   term=NONE cterm=NONE ctermfg=black ctermbg=white
+
 "--------------------------------------------------------------------------
 " 編集、文書整形関連
 " 
@@ -195,6 +198,7 @@ set clipboard=unnamed
 " 数値インクリメントを常に10進数にする。
 " アルファベットのインクリメントを有効化
 set nrformats=alpha
+
 "--------------------------------------------------------------------------
 " ファイル関連
 " 
@@ -204,19 +208,7 @@ set backupdir=$HOME/dotfiles/vimfiles/tmp/backup
 set directory=$HOME/dotfiles/vimfiles/tmp/swap
 " undoファイルを一箇所にまとめる
 set undodir=$HOME/dotfiles/vimfiles/tmp/undodir
-"--------------------------------------------------------------------------
-" 国際化関連
-" 
-" 文字コードの設定
-" fencsの記述にはeuc-jp（encの値）は一番最後に記述する必要がある
-" vimはファイルのオープン時にfencsの値を先頭から参照していき、fencsと値が
-" 一致したエンコーディングでファイルをオープンする
-" この時、一致しなくともencで指定されたエンコーディングが現れると無条件で
-" そのエンコーディングでファイルを開いてしまうため
-"set encoding=sjis
-"set termencoding=euc-jp
-"set fileencoding=euc-jp
-"set fileencodings=ucs-bom,iso-2022-jp,utf-8,ucs-2le,ucs-2,cp932,euc-jp
+
 "--------------------------------------------------------------------------
 " マップ定義
 " 
