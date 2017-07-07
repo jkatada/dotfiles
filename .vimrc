@@ -244,7 +244,7 @@ autocmd BufReadPost *
 augroup Markdown
     autocmd!
     " 拡張子に対するfiletype設定
-    au BufNewFile,BufRead *.md set filetype=markdown
+    autocmd BufNewFile,BufRead *.md set filetype=markdown
     " markdownで、アンダースコアやアスタリスクによるイタリック強調を解除
     autocmd FileType markdown hi! def link markdownItalic Normal
     " markdownで、アンダースコアに色がつかないように設定
@@ -368,7 +368,7 @@ map <silent> [Tag]p :tabprevious<CR>
 " GUIのVIMのみセッションの読み込み・保存を行う
 if has("gui_running")
     " Vim終了時に現在のセッションを保存する
-    au VimLeave * mks!  ~/vimsession
+    autocmd VimLeave * mks!  ~/vimsession
 
     "引数なし起動の時でセッションファイルが存在する場合、前回のsessionを復元
     autocmd VimEnter * nested if @% == '' && s:GetBufByte() == 0 && filereadable(expand("~/vimsession")) | source ~/vimsession | endif
