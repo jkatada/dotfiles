@@ -1,6 +1,6 @@
 "--------------------------------------------------------------------------
 " 基本設定
-" 
+"
 " 文字コード設定
 set encoding=utf-8
 " viとの互換をとらない
@@ -9,7 +9,6 @@ set nocompatible
 set runtimepath+=$HOME/dotfiles/vimfiles,$HOME/dotfiles/vimfiles/after
 " スクリプト内のエンコーディング設定
 scriptencoding utf-8
-
 "--------------------------------------------------------------------------
 " VimProcのWindowsバイナリを自動でダウンロードする。VimProcより前に設定が必要
 let g:vimproc#download_windows_dll = 1
@@ -122,10 +121,10 @@ nnoremap ,? ?
 "set laststatus=2
 " ステータスラインの色
 "hi StatusLine   term=NONE cterm=NONE ctermfg=black ctermbg=white
-" 
+"
 "--------------------------------------------------------------------------
 " 一般
-" 
+"
 " コマンド、検索パターンを50個まで履歴に残す
 set history=50
 " 起動画面を表示しない
@@ -145,7 +144,7 @@ set noincsearch
 
 "--------------------------------------------------------------------------
 " 装飾関連
-" 
+"
 "行番号を表示させる
 set number
 " タイトルをウインドウ枠に表示
@@ -174,7 +173,7 @@ hi StatusLine   term=NONE cterm=NONE ctermfg=black ctermbg=white
 
 "--------------------------------------------------------------------------
 " 編集、文書整形関連
-" 
+"
 " backspaceキーの挙動を設定する
 " indent    : 行頭の空白の削除を許す
 " eol        : 改行の削除を許す
@@ -201,7 +200,7 @@ set nrformats=alpha
 
 "--------------------------------------------------------------------------
 " ファイル関連
-" 
+"
 " バックアップファイルを一箇所にまとめる
 set backupdir=$HOME/dotfiles/vimfiles/tmp/backup
 " スワップファイルを一箇所にまとめる
@@ -211,8 +210,8 @@ set undodir=$HOME/dotfiles/vimfiles/tmp/undodir
 
 "--------------------------------------------------------------------------
 " マップ定義
-" 
-"  バッファの移動
+"
+" バッファの移動
 noremap <f1> :bprev<CR>
 noremap <f2> :bnext<CR>
 " markdownハイライトをオンにする
@@ -256,9 +255,15 @@ set display+=lastline
 "--------------------------------------------------------------------------
 " 文字表示関連
 "
-" 不可視文字の強調表示設定
-set lcs=eol:↲,tab:>.,extends:\
-set list
+if has("gui_running")
+    " 不可視文字の表示設定(改行は非表示、行末半角スペースを背景色違いで表示)
+    " 改行に←のようなマルチバイト文字は不可(MacVimでフォントがおかしくなる)
+    set lcs=eol:\ ,trail:\ ,tab:>.,extends:\
+    set list
+else
+    " CUIでは不可視文字の表示方法はデフォルト
+    set list
+endif
 
 " 全角スペースの強調表示設定
 augroup IdegraphicSpace
