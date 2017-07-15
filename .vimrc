@@ -1,6 +1,6 @@
 "--------------------------------------------------------------------------
 " 基本設定
-" 
+"
 " 文字コード設定
 set encoding=utf-8
 " viとの互換をとらない
@@ -9,7 +9,6 @@ set nocompatible
 set runtimepath+=$HOME/dotfiles/vimfiles,$HOME/dotfiles/vimfiles/after
 " スクリプト内のエンコーディング設定
 scriptencoding utf-8
-
 "--------------------------------------------------------------------------
 " VimProcのWindowsバイナリを自動でダウンロードする。VimProcより前に設定が必要
 let g:vimproc#download_windows_dll = 1
@@ -21,7 +20,7 @@ let g:vimproc#download_windows_dll = 1
 if 0 | endif
 
 if &compatible
-   set nocompatible               " Be iMproved
+   set nocompatible
 endif
 
 " プロキシ内環境を考慮してプロトコルをgit://からhttps://に変更
@@ -52,7 +51,6 @@ NeoBundle 'thinca/vim-fontzoom'
 NeoBundle 'kannokanno/previm'
 NeoBundle 'othree/eregex.vim'
 "NeoBundle 'vim-scripts/buftabs'
-" solarized カラースキーム
 NeoBundle 'altercation/vim-colors-solarized'
 
 call neobundle#end()
@@ -93,6 +91,7 @@ let g:user_emmet_settings = {
 \        'lang' : 'ja',
 \    },
 \}
+
 "--------------------------------------------------------------------------
 " matchit
 "
@@ -106,17 +105,6 @@ nnoremap / :M/
 nnoremap ? :M?
 nnoremap ,/ /
 nnoremap ,? ?
-
-"--------------------------------------------------------------------------
-" Fontzoom
-" デフォルトのキーマップを無効化
-let g:fontzoom_no_default_key_mappings = 1 
-" Ctrl-↑、Ctrl-↓ で拡大縮小
-nnoremap <C-Up> :Fontzoom +1<CR>
-nnoremap <C-Down> :Fontzoom -1<CR>
-" ホイールでの拡大縮小(Windowsでは動かない)
-nnoremap <C-ScrollWheelUp> :Fontzoom +1<CR>
-nnoremap <C-ScrollWheelDown> :Fontzoom -1<CR>
 
 "--------------------------------------------------------------------------
 " buftabs
@@ -133,14 +121,15 @@ nnoremap <C-ScrollWheelDown> :Fontzoom -1<CR>
 "set laststatus=2
 " ステータスラインの色
 "hi StatusLine   term=NONE cterm=NONE ctermfg=black ctermbg=white
-" 
+"
 "--------------------------------------------------------------------------
 " 一般
-" 
+"
 " コマンド、検索パターンを50個まで履歴に残す
 set history=50
 " 起動画面を表示しない
 set shortmess+=I
+
 "--------------------------------------------------------------------------
 " 検索関連
 " 
@@ -152,9 +141,10 @@ set smartcase
 set nowrapscan
 " 検索文字列入力時に順次対象文字列にヒットさせない
 set noincsearch
+
 "--------------------------------------------------------------------------
 " 装飾関連
-" 
+"
 "行番号を表示させる
 set number
 " タイトルをウインドウ枠に表示
@@ -180,9 +170,10 @@ set statusline=%F%m%r%h%w\%=\[%{(&fenc!=''?&fenc:&enc)}/%{&ff}][%Y]\[%03l,%03v][
 set laststatus=2
 " ステータスラインの色
 hi StatusLine   term=NONE cterm=NONE ctermfg=black ctermbg=white
+
 "--------------------------------------------------------------------------
 " 編集、文書整形関連
-" 
+"
 " backspaceキーの挙動を設定する
 " indent    : 行頭の空白の削除を許す
 " eol        : 改行の削除を許す
@@ -206,32 +197,21 @@ set clipboard=unnamed
 " 数値インクリメントを常に10進数にする。
 " アルファベットのインクリメントを有効化
 set nrformats=alpha
+
 "--------------------------------------------------------------------------
 " ファイル関連
-" 
+"
 " バックアップファイルを一箇所にまとめる
 set backupdir=$HOME/dotfiles/vimfiles/tmp/backup
 " スワップファイルを一箇所にまとめる
 set directory=$HOME/dotfiles/vimfiles/tmp/swap
 " undoファイルを一箇所にまとめる
 set undodir=$HOME/dotfiles/vimfiles/tmp/undodir
-"--------------------------------------------------------------------------
-" 国際化関連
-" 
-" 文字コードの設定
-" fencsの記述にはeuc-jp（encの値）は一番最後に記述する必要がある
-" vimはファイルのオープン時にfencsの値を先頭から参照していき、fencsと値が
-" 一致したエンコーディングでファイルをオープンする
-" この時、一致しなくともencで指定されたエンコーディングが現れると無条件で
-" そのエンコーディングでファイルを開いてしまうため
-"set encoding=sjis
-"set termencoding=euc-jp
-"set fileencoding=euc-jp
-"set fileencodings=ucs-bom,iso-2022-jp,utf-8,ucs-2le,ucs-2,cp932,euc-jp
+
 "--------------------------------------------------------------------------
 " マップ定義
-" 
-"  バッファの移動
+"
+" バッファの移動
 noremap <f1> :bprev<CR>
 noremap <f2> :bnext<CR>
 " markdownハイライトをオンにする
@@ -255,7 +235,7 @@ autocmd BufReadPost *
 augroup Markdown
     autocmd!
     " 拡張子に対するfiletype設定
-    au BufNewFile,BufRead *.md set filetype=markdown
+    autocmd BufNewFile,BufRead *.md set filetype=markdown
     " markdownで、アンダースコアやアスタリスクによるイタリック強調を解除
     autocmd FileType markdown hi! def link markdownItalic Normal
     " markdownで、アンダースコアに色がつかないように設定
@@ -275,9 +255,15 @@ set display+=lastline
 "--------------------------------------------------------------------------
 " 文字表示関連
 "
-" 不可視文字の強調表示設定
-set lcs=eol:↲,tab:>.,extends:\
-set list
+if has("gui_running")
+    " 不可視文字の表示設定(改行は非表示、行末半角スペースを背景色違いで表示)
+    " 改行に←のようなマルチバイト文字は不可(MacVimでフォントがおかしくなる)
+    set lcs=eol:\ ,trail:\ ,tab:>.,extends:\
+    set list
+else
+    " CUIでは不可視文字の表示方法はデフォルト
+    set list
+endif
 
 " 全角スペースの強調表示設定
 augroup IdegraphicSpace
@@ -379,7 +365,7 @@ map <silent> [Tag]p :tabprevious<CR>
 " GUIのVIMのみセッションの読み込み・保存を行う
 if has("gui_running")
     " Vim終了時に現在のセッションを保存する
-    au VimLeave * mks!  ~/vimsession
+    autocmd VimLeave * mks!  ~/vimsession
 
     "引数なし起動の時でセッションファイルが存在する場合、前回のsessionを復元
     autocmd VimEnter * nested if @% == '' && s:GetBufByte() == 0 && filereadable(expand("~/vimsession")) | source ~/vimsession | endif

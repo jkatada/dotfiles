@@ -48,8 +48,8 @@ gvim option for file association shortcut
 Double click `Windows/Swap_RCtrl_Caps-Win7.reg` file and install.
 
 
-Linux, Mac, etc
----------------
+Mac
+---
 
 	# clone dotfiles
 	cd
@@ -64,6 +64,12 @@ Linux, Mac, etc
 	cd
 	ln -s dotfiles/.vimrc .vimrc
 	ln -s dotfiles/.gvimrc .gvimrc
+
+	# copy bash setting
+	cd ~/dotfiles/Mac
+	cp ./.bashrc ./.bash_profile ~/
+	source ~/.bash_profile
+
 
 Update
 =======
