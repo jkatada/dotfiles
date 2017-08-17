@@ -225,6 +225,10 @@ noremap <f4> :set filetype=markdown<CR>
 " PrevimOpenを起動
 noremap <f7> :PrevimOpen<CR>
 
+" visualモードで連続インデントするために、インデント後に選択範囲を開放しない
+vnoremap > >gv
+vnoremap < <gv
+
 "--------------------------------------------------------------------------
 " ファイル読み込み時の設定
 "
