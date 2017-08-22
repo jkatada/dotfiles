@@ -222,8 +222,12 @@ noremap <f1> :bprev<CR>
 noremap <f2> :bnext<CR>
 " markdownハイライトをオンにする
 noremap <f4> :set filetype=markdown<CR>
-" PrevimOpenを起動
-noremap <f7> :PrevimOpen<CR>
+" 編集中ファイルをOSでデフォルト設定されているアプリケーションで開く
+if has("mac")
+  noremap <f7> :!open %<CR>
+elseif has("win32") || has("win64")
+  noremap <f7> :!start %<CR>
+endif
 
 " visualモードで連続インデントするために、インデント後に選択範囲を開放しない
 vnoremap > >gv
@@ -250,6 +254,8 @@ augroup Markdown
     autocmd FileType markdown hi! def link markdownItalic Normal
     " markdownで、アンダースコアに色がつかないように設定
     autocmd FileType markdown hi! def link markdownError Normal
+    " markdownの場合は、F7をPrevimOpenでの起動で上書きする
+    autocmd FileType markdown noremap <f7> :PrevimOpen<CR>
 augroup END
 
 "--------------------------------------------------------------------------
