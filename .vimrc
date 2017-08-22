@@ -224,14 +224,25 @@ noremap <f2> :bnext<CR>
 noremap <f4> :set filetype=markdown<CR>
 " 編集中ファイルをOSでデフォルト設定されているアプリケーションで開く
 if has("mac")
-  noremap <f7> :!open %<CR>
+  noremap <f7> :! open %<CR>
 elseif has("win32") || has("win64")
-  noremap <f7> :!start %<CR>
+  noremap <f7> :! start %<CR>
 endif
 
 " visualモードで連続インデントするために、インデント後に選択範囲を開放しない
 vnoremap > >gv
 vnoremap < <gv
+
+"--------------------------------------------------------------------------
+" コマンド定義
+"
+" browser-syncで編集中のHTMLを開く (要Browser-Syncのインストール)
+if has("mac")
+  "動作しない
+  "command! BrouserSync :! browser-sync start --server --files "%:h" --index "%:t" &
+elseif has("win32") || has("win64")
+  command! BrouserSync :! start /b /d "%:h" browser-sync start --server --files "%:h" --index "%:t"
+endif
 
 "--------------------------------------------------------------------------
 " ファイル読み込み時の設定

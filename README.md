@@ -29,6 +29,13 @@ Windows 7
 1. Install Cygwin.
 2. Add path of Cygwin bin directory to PATH environment variable.
 
+### for browser-sync
+    
+1. Install Node.js
+2. Install browser-sync
+
+		npm install -g browser-sync
+
 ### gvim shortcut
 
 gvim option for shortcut
