@@ -238,7 +238,7 @@ vnoremap < <gv
 if has("mac")
   "動作しない
   "command! BrouserSync :! browser-sync start --server --files "%:h" --index "%:t" &
-elseif has("win32") || has("win64")
+elseif has("win32")
   command! BrouserSync :! start /b /d "%:h" browser-sync start --server --files "%:h" --index "%:t"
 endif
 
