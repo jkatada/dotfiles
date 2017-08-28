@@ -302,11 +302,7 @@ augroup END
 " カラースキームの設定(CUI)
 "
 if has("mac")
-    if has("gui_running")
-        " MacのGUIは.gvimrcで設定するが、ここでcolorschemeを設定しないとエラーが
-        " でる
-        colorscheme default
-    else
+    if !has("gui_running")
         " MacのCUI設定
         set background=dark
         colorscheme solarized
