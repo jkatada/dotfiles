@@ -263,8 +263,6 @@ augroup Markdown
     autocmd FileType markdown hi! def link markdownItalic Normal
     " markdownで、アンダースコアに色がつかないように設定
     autocmd FileType markdown hi! def link markdownError Normal
-    " markdownの場合は、F7をPrevimOpenでの起動で上書きする
-    autocmd FileType markdown noremap <f7> :PrevimOpen<CR>
 augroup END
 
 "--------------------------------------------------------------------------
