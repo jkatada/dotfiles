@@ -3,22 +3,21 @@ scriptencoding utf-8
 " カラースキームの設定(GUI)
 "
 if has("mac")
-	colorscheme solarized
-	set background=dark
-	" F5でdark, light をチェンジ
-	call togglebg#map("<f5>")
+  colorscheme solarized
+  set background=dark
+  " F5でdark, light をチェンジ
+  call togglebg#map("<f5>")
 elseif has("unix")
 elseif has("win32")
-	colorscheme solarized
-	set background=dark
-	" F5でdark, light をチェンジ
-	call togglebg#map("<f5>")
-	"highlight Normal guifg=Black
-	"highlight Cursor guibg=LightGray guifg=LightGray
-	"highlight SpecialKey gui=NONE guifg=LightGray guibg=NONE
-	"highlight NonText gui=NONE guifg=LightGray guibg=NONE
-	"highlight IdeographicSpace gui=underline guifg=LightGray
-elseif has("win64")
+  colorscheme solarized
+  set background=dark
+  " F5でdark, light をチェンジ
+  call togglebg#map("<f5>")
+  "highlight Normal guifg=Black
+  "highlight Cursor guibg=LightGray guifg=LightGray
+  "highlight SpecialKey gui=NONE guifg=LightGray guibg=NONE
+  "highlight NonText gui=NONE guifg=LightGray guibg=NONE
+  "highlight IdeographicSpace gui=underline guifg=LightGray
 endif
 
 "---------------------------------------------------------------------------

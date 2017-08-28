@@ -223,7 +223,7 @@ noremap <f4> :set filetype=markdown<CR>
 " 編集中ファイルをOSでデフォルト設定されているアプリケーションで開く
 if has("mac")
   noremap <f7> :! open %<CR>
-elseif has("win32") || has("win64")
+elseif has("win32")
   noremap <f7> :! start %<CR>
 endif
 
