@@ -10,7 +10,7 @@ if 0 | endif
 if &compatible
    set nocompatible
 endif
-j
+
 " vim設定をgithubで管理するために、dotfiles配下を指定する。
 set runtimepath+=$HOME/dotfiles/vimfiles,$HOME/dotfiles/vimfiles/after
 
