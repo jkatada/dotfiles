@@ -4,8 +4,13 @@ scriptencoding utf-8
 "--------------------------------------------------------------------------
 " 基本設定
 "
-" viとの互換をとらない
-set nocompatible
+" Note: Skip initialization for vim-tiny or vim-small.
+if 0 | endif
+
+if &compatible
+   set nocompatible
+endif
+j
 " vim設定をgithubで管理するために、dotfiles配下を指定する。
 set runtimepath+=$HOME/dotfiles/vimfiles,$HOME/dotfiles/vimfiles/after
 
@@ -16,12 +21,6 @@ let g:vimproc#download_windows_dll = 1
 "--------------------------------------------------------------------------
 " NeoBundle
 "
-" Note: Skip initialization for vim-tiny or vim-small.
-if 0 | endif
-
-if &compatible
-   set nocompatible
-endif
 
 " プロキシ内環境を考慮してプロトコルをgit://からhttps://に変更
 let g:neobundle_default_git_protocol='https'
@@ -54,7 +53,7 @@ NeoBundle 'othree/eregex.vim'
 NeoBundle 'altercation/vim-colors-solarized'
 
 call neobundle#end()
-  
+
 NeoBundleCheck
 
 "--------------------------------------------------------------------------
@@ -247,22 +246,13 @@ endif
 "
 " プラグイン、ファイルタイプ別インデントを有効
 filetype plugin indent on
-" textファイルのカラムを78に設定
-autocmd FileType text setlocal textwidth=78
 " カーソル位置を記憶しておく
-autocmd BufReadPost *
-\ if line("'\"") > 0 && line("'\"") <= line("$") |
-\   exe "normal g`\"" |
-\ endif
-
-augroup Markdown
+augroup CursolLocation
     autocmd!
-    " 拡張子に対するfiletype設定
-    autocmd BufNewFile,BufRead *.md set filetype=markdown
-    " markdownで、アンダースコアやアスタリスクによるイタリック強調を解除
-    autocmd FileType markdown hi! def link markdownItalic Normal
-    " markdownで、アンダースコアに色がつかないように設定
-    autocmd FileType markdown hi! def link markdownError Normal
+    autocmd BufReadPost *
+    \ if line("'\"") > 0 && line("'\"") <= line("$") |
+    \   exe "normal g`\"" |
+    \ endif
 augroup END
 
 "--------------------------------------------------------------------------
@@ -383,11 +373,14 @@ map <silent> [Tag]p :tabprevious<CR>
 "
 " GUIのVIMのみセッションの読み込み・保存を行う
 if has("gui_running")
-    " Vim終了時に現在のセッションを保存する
-    autocmd VimLeave * mks!  ~/vimsession
+    augroup VimSession
+        autocmd!
+        " Vim終了時に現在のセッションを保存する
+        autocmd VimLeave * mks!  ~/vimsession
+        "引数なし起動の時でセッションファイルが存在する場合、前回のsessionを復元
+        autocmd VimEnter * nested if @% == '' && s:GetBufByte() == 0 && filereadable(expand("~/vimsession")) | source ~/vimsession | endif
+    augroup END
 
-    "引数なし起動の時でセッションファイルが存在する場合、前回のsessionを復元
-    autocmd VimEnter * nested if @% == '' && s:GetBufByte() == 0 && filereadable(expand("~/vimsession")) | source ~/vimsession | endif
     function! s:GetBufByte()
         let byte = line2byte(line('$') + 1)
         if byte == -1
