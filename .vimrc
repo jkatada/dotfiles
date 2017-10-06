@@ -248,9 +248,9 @@ nnoremap <Space> za
 " browser-syncで編集中のHTMLを開く (要Browser-Syncのインストール)
 if has("mac")
   "動作しない
-  "command! BrouserSync :! browser-sync start --server --files "%:h" --index "%:t" &
+  "command! BrowserSync :! browser-sync start --server --files "%:h" --index "%:t" &
 elseif has("win32")
-  command! BrouserSync :! start /b /d "%:h" browser-sync start --server --files "%:h" --index "%:t"
+  command! BrowserSync :! start /b /d "%:h" browser-sync start --server --files "%:h" --index "%:t"
 endif
 
 "--------------------------------------------------------------------------
