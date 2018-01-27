@@ -14,6 +14,9 @@ endif
 " vim設定をgithubで管理するために、dotfiles配下を指定する。
 set runtimepath+=$HOME/dotfiles/vimfiles,$HOME/dotfiles/vimfiles/after
 
+" Beep音オフ
+set belloff=all
+
 "--------------------------------------------------------------------------
 " VimProcのWindowsバイナリを自動でダウンロードする。VimProcより前に設定が必要
 let g:vimproc#download_windows_dll = 1
