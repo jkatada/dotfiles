@@ -8,6 +8,10 @@ if has("mac")
   " F5でdark, light をチェンジ
   call togglebg#map("<f5>")
 elseif has("unix")
+  colorscheme solarized
+  set background=dark
+  " F5でdark, light をチェンジ
+  call togglebg#map("<f5>")
 elseif has("win32")
   colorscheme solarized
   set background=dark

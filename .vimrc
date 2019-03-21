@@ -75,7 +75,7 @@ call unite#custom_default_action('source/bookmark/directory' , 'vimfiler')
 " gxでカーソル下のURLを開く、または単語を検索
 let g:netrw_nogx = 1 " netrwのgx(ULRを開く)を無効化
 nmap gx <Plug>(openbrowser-smart-search)
-vmap gx <Plug>(openbrowser-smart-search) 
+vmap gx <Plug>(openbrowser-smart-search)
 
 "--------------------------------------------------------------------------
 " vim-quickrun
@@ -283,15 +283,10 @@ set display+=lastline
 "--------------------------------------------------------------------------
 " 文字表示関連
 "
-if has("gui_running")
-    " 不可視文字の表示設定(改行は非表示、行末半角スペースを背景色違いで表示)
-    " 改行に←のようなマルチバイト文字は不可(MacVimでフォントがおかしくなる)
-    set lcs=eol:\ ,trail:\ ,tab:>.,extends:\
-    set list
-else
-    " CUIでは不可視文字の表示方法はデフォルト
-    set list
-endif
+" 不可視文字の表示設定(改行は非表示、行末半角スペースを背景色違いで表示)
+" 改行に←のようなマルチバイト文字は不可(MacVimでフォントがおかしくなる)
+set lcs=eol:\ ,trail:\ ,tab:>.,extends:\
+set list
 
 " 全角スペースの強調表示設定
 augroup IdegraphicSpace
@@ -322,9 +317,13 @@ elseif has("unix")
         highlight SpecialKey cterm=NONE ctermfg=Brown
         highlight NonText cterm=NONE ctermfg=Brown
     else
-        colorscheme default
-        highlight SpecialKey cterm=NONE ctermfg=LightGray
-        highlight NonText cterm=NONE ctermfg=LightGray
+        " UNIXのCUI設定
+        if !has("gui_running")
+            set background=dark
+            colorscheme solarized
+            " F5でdark, light をチェンジ
+            call togglebg#map("<f5>")
+        endif
     endif
 elseif has("win32")
 elseif has("win64")
