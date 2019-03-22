@@ -199,7 +199,13 @@ set expandtab
 " オートインデントを有効にする
 set cindent
 " ヤンクでクリップボードにコピー
-set clipboard=unnamed
+if has("mac")
+    set clipboard=unnamed
+elseif has("unix")
+    set clipboard=unnamedplus
+else
+    set clipboard=unnamed
+endif
 " 数値インクリメントを常に10進数にする。
 " アルファベットのインクリメントを有効化
 set nrformats=alpha
