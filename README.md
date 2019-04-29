@@ -7,7 +7,7 @@ Prepare
 	# [git] set autoCRLF false
 	git config --global core.autocrlf false
 
-Windows 7
+Windows 7, 10
 ----------
 
 	# clone dotfiles
@@ -26,8 +26,8 @@ Windows 7
 
 ### for VimFiler (rm.exe, cp.exe, etc...)
     
-1. Install Cygwin.
-2. Add path of Cygwin bin directory to PATH environment variable.
+1. Install Cygwin or Git for Windows.
+2. Add path of Cygwin bin directory or Git /usr/bin directory to PATH environment variable.
 
 ### for browser-sync
     
@@ -47,6 +47,7 @@ gvim option for SentTo shortcut
 	-p --remote-tab-silent
  
 gvim option for file association shortcut
+(change from regedit. key: `HKEY_CLASSES_ROOT/Applications/gvim.exe/shell/open/command`)
 
 	-p --remote-tab-silent "%1"
 
