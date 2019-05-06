@@ -53,7 +53,7 @@ gvim option for file association shortcut
 
 ### Change keyboard mapping
 
-Double click `Windows/Swap_RCtrl_Caps-Win7.reg` file and install.
+Double click `Windows/Swap_RCtrl_Caps-Win.reg` file and install.
 
 
 Mac
