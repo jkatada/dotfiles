@@ -1,0 +1,148 @@
+{
+  "Blacklist": [],
+  "Gestures": [
+    {
+      "command": "NewTab",
+      "settings": {
+        "position": "default",
+        "focus": true
+      },
+      "gesture": "DU"
+    },
+    {
+      "command": "ReloadTab",
+      "settings": {
+        "cache": false
+      },
+      "gesture": "UD"
+    },
+    {
+      "command": "ReloadTab",
+      "settings": {
+        "cache": true
+      },
+      "gesture": "UDU"
+    },
+    {
+      "command": "CloseTab",
+      "settings": {
+        "nextFocus": "default",
+        "closePinned": true
+      },
+      "gesture": "DR"
+    },
+    {
+      "command": "RestoreTab",
+      "settings": {
+        "currentWindow": false
+      },
+      "gesture": "LR"
+    },
+    {
+      "command": "PageBack",
+      "gesture": "L"
+    },
+    {
+      "command": "PageForth",
+      "gesture": "R"
+    },
+    {
+      "command": "ScrollTop",
+      "settings": {
+        "duration": 100
+      },
+      "gesture": "RU"
+    },
+    {
+      "command": "ScrollBottom",
+      "settings": {
+        "duration": 100
+      },
+      "gesture": "RD"
+    },
+    {
+      "command": "FocusRightTab",
+      "gesture": "UR"
+    },
+    {
+      "command": "FocusLeftTab",
+      "gesture": "UL"
+    },
+    {
+      "command": "URLLevelUp",
+      "gesture": "U"
+    },
+    {
+      "command": "SearchTextSelection",
+      "settings": {
+        "position": "default",
+        "focus": true,
+        "searchEngineURL": "https://www.google.com/search?q="
+      },
+      "gesture": "RL"
+    }
+  ],
+  "Settings": {
+    "Gesture": {
+      "mouseButton": 2,
+      "suppressionKey": "",
+      "distanceThreshold": 10,
+      "distanceSensitivity": 10,
+      "Timeout": {
+        "active": false,
+        "duration": 1
+      },
+      "Trace": {
+        "display": false,
+        "Style": {
+          "opacity": 0.8,
+          "strokeStyle": "#00AAA0",
+          "lineWidth": 10,
+          "lineGrowth": true
+        }
+      },
+      "Directions": {
+        "display": false,
+        "Style": {
+          "color": "#FFFFFF",
+          "backgroundColor": "#000000",
+          "backgroundOpacity": 0.3,
+          "fontSize": "8vh",
+          "textAlign": "center"
+        }
+      },
+      "Command": {
+        "display": false,
+        "Style": {
+          "color": "#FFFFFF",
+          "backgroundColor": "#000000",
+          "backgroundOpacity": 0.3,
+          "fontSize": "6vh"
+        }
+      }
+    },
+    "Rocker": {
+      "active": true,
+      "leftMouseClick": {
+        "command": "PageBack"
+      },
+      "rightMouseClick": {
+        "command": "PageForth"
+      }
+    },
+    "Wheel": {
+      "active": false,
+      "mouseButton": 1,
+      "wheelUp": {
+        "command": "FocusRightTab"
+      },
+      "wheelDown": {
+        "command": "FocusLeftTab"
+      }
+    },
+    "General": {
+      "updateNotification": true,
+      "theme": "default"
+    }
+  }
+}
