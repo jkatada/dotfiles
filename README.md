@@ -23,6 +23,8 @@ Windows 7, 10
 	cd %HOMEPATH%
 	mklink ".vimrc" "dotfiles\.vimrc"
 	mklink ".gvimrc" "dotfiles\.gvimrc"
+	# after installing vscode
+	mklink /d "%AppData%\Code\User" "c:%HOMEPATH%\dotfiles\vscode"
 
 ### for VimFiler (rm.exe, cp.exe, etc...)
     
@@ -56,8 +58,8 @@ gvim option for file association shortcut
 Double click `Windows/Swap_RCtrl_Caps-Win.reg` file and install.
 
 
-Mac
----
+Mac/Linux
+---------
 
 	# clone dotfiles
 	cd
@@ -72,6 +74,8 @@ Mac
 	cd
 	ln -s dotfiles/.vimrc .vimrc
 	ln -s dotfiles/.gvimrc .gvimrc
+	# after installing vscode
+	ln -s ~/dotfiles/vscode .config/Code/User
 
 	# copy bash setting
 	cd ~/dotfiles/Mac

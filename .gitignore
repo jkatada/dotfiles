@@ -7,3 +7,7 @@
 *~
 *.un~
 *.swp
+
+/vscode/*
+!/vscode/keybindings.json
+!/vscode/settings.json
