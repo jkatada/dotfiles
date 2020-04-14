@@ -11,5 +11,7 @@
     "editor.renderWhitespace": "boundary",
     "explorer.confirmDelete": false,
     "vim.useSystemClipboard": true,
-    "html.mirrorCursorOnMatchingTag": false
+    "html.mirrorCursorOnMatchingTag": false,
+    "terminal.integrated.shell.windows": "C:\\Program Files\\Git\\bin\\bash.exe",
+    "window.zoomLevel": 0
 }
