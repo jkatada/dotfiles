@@ -75,9 +75,10 @@ Mac/Linux
 	ln -s dotfiles/.vimrc .vimrc
 	ln -s dotfiles/.gvimrc .gvimrc
 	# after installing vscode
+    rm -rf .config/Code/User
 	ln -s ~/dotfiles/vscode .config/Code/User
 
-	# copy bash setting
+	# [Mac only] copy bash setting
 	cd ~/dotfiles/Mac
 	cp ./.bashrc ./.bash_profile ~/
 	source ~/.bash_profile
