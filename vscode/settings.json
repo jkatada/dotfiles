@@ -13,5 +13,6 @@
     "vim.useSystemClipboard": true,
     "html.mirrorCursorOnMatchingTag": false,
     "terminal.integrated.shell.windows": "C:\\Program Files\\Git\\bin\\bash.exe",
-    "window.zoomLevel": 0
+    "window.zoomLevel": 0,
+    "java.semanticHighlighting.enabled": true
 }
