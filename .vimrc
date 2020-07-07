@@ -1,4 +1,5 @@
 set encoding=utf-8
+set fileencodings=utf-8,ms932,iso-2022-jp,euc-jp
 scriptencoding utf-8
 
 "--------------------------------------------------------------------------
