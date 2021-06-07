@@ -14,5 +14,6 @@
     "html.mirrorCursorOnMatchingTag": false,
     "terminal.integrated.shell.windows": "C:\\Program Files\\Git\\bin\\bash.exe",
     "window.zoomLevel": 0,
-    "java.semanticHighlighting.enabled": true
+    "java.semanticHighlighting.enabled": true,
+    "editor.minimap.enabled": false
 }
