@@ -61,6 +61,8 @@ Double click `Windows/Swap_RCtrl_Caps-Win.reg` file and install.
 Mac/Linux
 ---------
 
+(Mac) Install MacVim by Homebrew
+
 	# clone dotfiles
 	cd
 	git clone https://github.com/jkatada/dotfiles
