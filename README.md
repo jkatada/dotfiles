@@ -76,6 +76,8 @@ Mac/Linux
 	cd
 	ln -s dotfiles/.vimrc .vimrc
 	ln -s dotfiles/.gvimrc .gvimrc
+    mkdir -p .config/git
+    ln -s ~/dotfiles/.config/git/ignore .config/git/ignore
 	# after installing vscode (Linux)
     rm -rf .config/Code/User
 	ln -s ~/dotfiles/vscode .config/Code/User
