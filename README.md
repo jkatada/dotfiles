@@ -80,12 +80,17 @@ Mac/Ubuntu
     # after installing vscode
     rm -rf .config/Code/User
     ln -s ~/dotfiles/vscode .config/Code/User
+    ~/dotfiles/vscode/install_extensions.sh
 
-### Mac Only
+### Mac
 
     # after installing vscode
     rm -rf ~/Library/Application\ Support/Code/User
     ln -s ~/dotfiles/vscode  ~/Library/Application\ Support/Code/User
+
+    Open command palette, and input `>Shell Command: Install 'code' command in PATH`
+
+    ~/dotfiles/vscode/install_extensions.sh
 
     # copy bash setting
     cd ~/dotfiles/Mac
@@ -128,4 +133,9 @@ dein.vim plugins
 vim command
 
     :call dein#update()
+
+vscode extensions list
+----------------------
+
+    code --list-extensions > ~/dotfiles/vscode/extensions
 

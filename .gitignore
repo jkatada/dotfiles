@@ -11,3 +11,5 @@
 /vscode/*
 !/vscode/keybindings.json
 !/vscode/settings.json
+!/vscode/extensions
+!/vscode/install_extensions.sh
