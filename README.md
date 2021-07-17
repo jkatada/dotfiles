@@ -4,10 +4,12 @@ Install
 Prepare
 --------
 
-	# [git] set autoCRLF false
-	git config --global core.autocrlf false
+```
+# [git] set autoCRLF false
+git config --global core.autocrlf false
+```
 
-Windows 7, 10
+Windows 10
 ----------
 
 	# clone dotfiles
@@ -93,20 +95,6 @@ Mac/Ubuntu
     ln -s ~/dotfiles/vscode .config/Code/User
     ~/dotfiles/vscode/install_extensions.sh
 
-### Mac
-
-    # after installing vscode
-    rm -rf ~/Library/Application\ Support/Code/User
-    ln -s ~/dotfiles/vscode  ~/Library/Application\ Support/Code/User
-
-    Open command palette, and input `>Shell Command: Install 'code' command in PATH`
-
-    ~/dotfiles/vscode/install_extensions.sh
-
-    # copy bash setting
-    cd ~/dotfiles/Mac
-    cp ./.bashrc ./.bash_profile ~/
-    source ~/.bash_profile
 
 Update
 =======
