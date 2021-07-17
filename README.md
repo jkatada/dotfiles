@@ -83,6 +83,9 @@ Mac/Linux
 	cp ./.bashrc ./.bash_profile ~/
 	source ~/.bash_profile
 
+    # [Mac] after setup vim, make vimproc library
+    cd ~/dotfiles/vimfiles/dein/repos/github.com/Shougo/vimproc.vim
+    make
 
 Update
 =======
