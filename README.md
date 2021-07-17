@@ -87,33 +87,33 @@ Mac/Linux
 Update
 =======
 
-NeoBundle
+dein.vim
 ----------
 
 ### Update and Push
 
-	# move to home directory (Windows: cd %HOMEPATH% )
-	cd
-	
-	cd dotfiles
-	git submodule foreach git pull origin master
-	
+    # move to home directory (Windows: cd %HOMEPATH% )
+    cd
+    
+    cd dotfiles
+    git submodule foreach git pull origin master
+
 After execution of the above command, execute "git add", "git commit" and "git push".
 
 ### Pull and Update (on other repository)
 
-	# move to home directory (Windows: cd %HOMEPATH% )
-	cd
-	
-	cd dotfiles
-	git pull
-	git submodule update
+    # move to home directory (Windows: cd %HOMEPATH% )
+    cd
+    
+    cd dotfiles
+    git pull
+    git submodule update
 
 
-NeoBundle Plugins
+dein.vim plugins
 -----------------
 
 vim command
 
-    :NeoBundleUpdate
+    :call dein#update()
 

@@ -23,42 +23,43 @@ set belloff=all
 let g:vimproc#download_windows_dll = 1
 
 "--------------------------------------------------------------------------
-" NeoBundle
+" dein.vim
 "
+let s:dein_dir = expand('~/dotfiles/vimfiles/dein')
+let s:dein_repo_dir = s:dein_dir . '/repos/github.com/Shougo/dein.vim'
+execute 'set runtimepath+=' . s:dein_repo_dir
 
-" プロキシ内環境を考慮してプロトコルをgit://からhttps://に変更
-let g:neobundle_default_git_protocol='https'
+" 設定開始
+call dein#begin(s:dein_dir)
 
-if has('vim_starting')
-    set runtimepath+=~/dotfiles/vimfiles/bundle/neobundle.vim/
+call dein#add('Shougo/unite.vim')
+call dein#add('Shougo/dein.vim')
+call dein#add('Shougo/vimproc.vim', {
+  \ 'build' : {
+  \     'windows' : 'tools\\update-dll-mingw',
+  \     'cygwin' : 'make -f make_cygwin.mak',
+  \     'mac' : 'make -f make_mac.mak',
+  \     'linux' : 'make',
+  \     'unix' : 'gmake',
+  \    },
+  \ })
+call dein#add('Shougo/vimfiler')
+call dein#add('mattn/emmet-vim')
+call dein#add('tyru/open-browser.vim')
+call dein#add('thinca/vim-quickrun')
+call dein#add('thinca/vim-fontzoom')
+call dein#add('kannokanno/previm')
+call dein#add('othree/eregex.vim')
+call dein#add('altercation/vim-colors-solarized')
+
+" 設定終了
+call dein#end()
+
+" もし、未インストールものものがあったらインストール
+if dein#check_install()
+  call dein#install()
 endif
 
-call neobundle#begin(expand('~/dotfiles/vimfiles/bundle/'))
-
-NeoBundleFetch 'Shougo/neobundle.vim'
-NeoBundle 'Shougo/unite.vim'
-NeoBundle 'Shougo/vimproc', {
-\ 'build' : {
-\     'windows' : 'tools\\update-dll-mingw',
-\     'cygwin' : 'make -f make_cygwin.mak',
-\     'mac' : 'make -f make_mac.mak',
-\     'linux' : 'make',
-\     'unix' : 'gmake',
-\    },
-\ }
-NeoBundle 'Shougo/vimfiler'
-NeoBundle 'mattn/emmet-vim'
-NeoBundle 'tyru/open-browser.vim'
-NeoBundle 'thinca/vim-quickrun'
-NeoBundle 'thinca/vim-fontzoom'
-NeoBundle 'kannokanno/previm'
-NeoBundle 'othree/eregex.vim'
-"NeoBundle 'vim-scripts/buftabs'
-NeoBundle 'altercation/vim-colors-solarized'
-
-call neobundle#end()
-
-NeoBundleCheck
 
 "--------------------------------------------------------------------------
 " vimfiler
@@ -67,8 +68,6 @@ NeoBundleCheck
 let g:vimfiler_as_default_explorer = 1
 " セーフモードをデフォルトでオフにする
 let g:vimfiler_safe_mode_by_default = 0
-" :Unite bookmark を VimFilerで開く
-call unite#custom_default_action('source/bookmark/directory' , 'vimfiler')
 
 "--------------------------------------------------------------------------
 " open-browser

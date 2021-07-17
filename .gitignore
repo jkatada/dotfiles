@@ -1,4 +1,4 @@
-/vimfiles/bundle/
+/vimfiles/dein/
 /vimfiles/tmp/backup/*
 /vimfiles/tmp/swap/*
 /vimfiles/tmp/undodir/*
