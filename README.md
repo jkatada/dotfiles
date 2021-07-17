@@ -58,7 +58,7 @@ gvim option for file association shortcut
 Double click `Windows/Swap_RCtrl_Caps-Win.reg` file and install.
 
 
-Mac/Linux
+Mac/Ubuntu
 ---------
 
 (Mac) Install MacVim by Homebrew
@@ -76,22 +76,37 @@ Mac/Linux
 	cd
 	ln -s dotfiles/.vimrc .vimrc
 	ln -s dotfiles/.gvimrc .gvimrc
+
+    # global .gitignore
+    cd
     mkdir -p .config/git
     ln -s ~/dotfiles/.config/git/ignore .config/git/ignore
-	# after installing vscode (Linux)
-    rm -rf .config/Code/User
-	ln -s ~/dotfiles/vscode .config/Code/User
-	# after installing vscode (Mac)
-    rm -rf ./Library/Application\ Support/Code/User
-    ln -s ~/dotfiles/vscode/ ./Library/Application\ Support/Code/User
-	# [Mac only] copy bash setting
-	cd ~/dotfiles/Mac
-	cp ./.bashrc ./.bash_profile ~/
-	source ~/.bash_profile
 
-    # [Mac] after setup vim, make vimproc library
+    # after setup vim, make vimproc library
     cd ~/dotfiles/vimfiles/dein/repos/github.com/Shougo/vimproc.vim
     make
+
+### Ubuntu
+
+    # after installing vscode
+    rm -rf .config/Code/User
+    ln -s ~/dotfiles/vscode .config/Code/User
+    ~/dotfiles/vscode/install_extensions.sh
+
+### Mac
+
+    # after installing vscode
+    rm -rf ~/Library/Application\ Support/Code/User
+    ln -s ~/dotfiles/vscode  ~/Library/Application\ Support/Code/User
+
+    Open command palette, and input `>Shell Command: Install 'code' command in PATH`
+
+    ~/dotfiles/vscode/install_extensions.sh
+
+    # copy bash setting
+    cd ~/dotfiles/Mac
+    cp ./.bashrc ./.bash_profile ~/
+    source ~/.bash_profile
 
 Update
 =======
@@ -125,4 +140,9 @@ dein.vim plugins
 vim command
 
     :call dein#update()
+
+vscode extensions list
+----------------------
+
+    code --list-extensions > ~/dotfiles/vscode/extensions
 
