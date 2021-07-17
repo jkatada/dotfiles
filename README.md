@@ -58,7 +58,7 @@ gvim option for file association shortcut
 Double click `Windows/Swap_RCtrl_Caps-Win.reg` file and install.
 
 
-Mac/Linux
+Mac/Ubuntu
 ---------
 
 	# clone dotfiles
@@ -74,16 +74,25 @@ Mac/Linux
 	cd
 	ln -s dotfiles/.vimrc .vimrc
 	ln -s dotfiles/.gvimrc .gvimrc
-	# after installing vscode
+
+### Ubuntu
+
+    # after installing vscode
     rm -rf .config/Code/User
-	ln -s ~/dotfiles/vscode .config/Code/User
+    ln -s ~/dotfiles/vscode .config/Code/User
 
-	# [Mac only] copy bash setting
-	cd ~/dotfiles/Mac
-	cp ./.bashrc ./.bash_profile ~/
-	source ~/.bash_profile
+### Mac Only
 
-    # [Mac] after setup vim, make vimproc library
+    # after installing vscode
+    rm -rf ~/Library/Application\ Support/Code/User
+    ln -s ~/dotfiles/vscode  ~/Library/Application\ Support/Code/User
+
+    # copy bash setting
+    cd ~/dotfiles/Mac
+    cp ./.bashrc ./.bash_profile ~/
+    source ~/.bash_profile
+
+    # after setup vim, make vimproc library
     cd ~/dotfiles/vimfiles/dein/repos/github.com/Shougo/vimproc.vim
     make
 
