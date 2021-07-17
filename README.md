@@ -75,6 +75,10 @@ Mac/Ubuntu
 	ln -s dotfiles/.vimrc .vimrc
 	ln -s dotfiles/.gvimrc .gvimrc
 
+    # after setup vim, make vimproc library
+    cd ~/dotfiles/vimfiles/dein/repos/github.com/Shougo/vimproc.vim
+    make
+
 ### Ubuntu
 
     # after installing vscode
@@ -96,10 +100,6 @@ Mac/Ubuntu
     cd ~/dotfiles/Mac
     cp ./.bashrc ./.bash_profile ~/
     source ~/.bash_profile
-
-    # after setup vim, make vimproc library
-    cd ~/dotfiles/vimfiles/dein/repos/github.com/Shougo/vimproc.vim
-    make
 
 Update
 =======
