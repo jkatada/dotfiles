@@ -61,6 +61,8 @@ Double click `Windows/Swap_RCtrl_Caps-Win.reg` file and install.
 Mac/Ubuntu
 ---------
 
+(Mac) Install MacVim by Homebrew
+
 	# clone dotfiles
 	cd
 	git clone https://github.com/jkatada/dotfiles
@@ -74,6 +76,11 @@ Mac/Ubuntu
 	cd
 	ln -s dotfiles/.vimrc .vimrc
 	ln -s dotfiles/.gvimrc .gvimrc
+
+    # global .gitignore
+    cd
+    mkdir -p .config/git
+    ln -s ~/dotfiles/.config/git/ignore .config/git/ignore
 
     # after setup vim, make vimproc library
     cd ~/dotfiles/vimfiles/dein/repos/github.com/Shougo/vimproc.vim
