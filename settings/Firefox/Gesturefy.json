@@ -2,84 +2,207 @@
   "Blacklist": [],
   "Gestures": [
     {
-      "command": "NewTab",
-      "settings": {
-        "position": "default",
-        "focus": true
+      "command": {
+        "name": "URLLevelUp"
       },
-      "gesture": "DU"
+      "pattern": [
+        [
+          0,
+          -1
+        ]
+      ]
     },
     {
-      "command": "ReloadTab",
-      "settings": {
-        "cache": false
+      "command": {
+        "name": "FocusLeftTab",
+        "settings": {
+          "cycling": true,
+          "excludeDiscarded": false
+        }
       },
-      "gesture": "UD"
+      "pattern": [
+        [
+          0,
+          -1
+        ],
+        [
+          -1,
+          0
+        ]
+      ]
     },
     {
-      "command": "ReloadTab",
-      "settings": {
-        "cache": true
+      "command": {
+        "name": "FocusRightTab",
+        "settings": {
+          "cycling": true,
+          "excludeDiscarded": false
+        }
       },
-      "gesture": "UDU"
+      "pattern": [
+        [
+          0,
+          -1
+        ],
+        [
+          1,
+          0
+        ]
+      ]
     },
     {
-      "command": "CloseTab",
-      "settings": {
-        "nextFocus": "default",
-        "closePinned": true
+      "command": {
+        "name": "ScrollBottom",
+        "settings": {
+          "duration": 100
+        }
       },
-      "gesture": "DR"
+      "pattern": [
+        [
+          1,
+          0
+        ],
+        [
+          0,
+          1
+        ]
+      ]
     },
     {
-      "command": "RestoreTab",
-      "settings": {
-        "currentWindow": false
+      "command": {
+        "name": "ScrollTop",
+        "settings": {
+          "duration": 100
+        }
       },
-      "gesture": "LR"
+      "pattern": [
+        [
+          1,
+          0
+        ],
+        [
+          0,
+          -1
+        ]
+      ]
     },
     {
-      "command": "PageBack",
-      "gesture": "L"
-    },
-    {
-      "command": "PageForth",
-      "gesture": "R"
-    },
-    {
-      "command": "ScrollTop",
-      "settings": {
-        "duration": 100
+      "command": {
+        "name": "PageForth"
       },
-      "gesture": "RU"
+      "pattern": [
+        [
+          1,
+          0
+        ]
+      ]
     },
     {
-      "command": "ScrollBottom",
-      "settings": {
-        "duration": 100
+      "command": {
+        "name": "PageBack"
       },
-      "gesture": "RD"
+      "pattern": [
+        [
+          -1,
+          0
+        ]
+      ]
     },
     {
-      "command": "FocusRightTab",
-      "gesture": "UR"
-    },
-    {
-      "command": "FocusLeftTab",
-      "gesture": "UL"
-    },
-    {
-      "command": "URLLevelUp",
-      "gesture": "U"
-    },
-    {
-      "command": "SearchTextSelection",
-      "settings": {
-        "position": "default",
-        "focus": true,
-        "searchEngineURL": "https://www.google.com/search?q="
+      "command": {
+        "name": "RestoreTab",
+        "settings": {
+          "currentWindow": false
+        }
       },
-      "gesture": "RL"
+      "pattern": [
+        [
+          -1,
+          0
+        ],
+        [
+          1,
+          0
+        ]
+      ]
+    },
+    {
+      "command": {
+        "name": "CloseTab",
+        "settings": {
+          "nextFocus": "default",
+          "closePinned": true
+        }
+      },
+      "pattern": [
+        [
+          0,
+          1
+        ],
+        [
+          1,
+          0
+        ]
+      ]
+    },
+    {
+      "command": {
+        "name": "ReloadTab",
+        "settings": {
+          "cache": true
+        }
+      },
+      "pattern": [
+        [
+          0,
+          -1
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          -1
+        ]
+      ]
+    },
+    {
+      "command": {
+        "name": "ReloadTab",
+        "settings": {
+          "cache": false
+        }
+      },
+      "pattern": [
+        [
+          0,
+          -1
+        ],
+        [
+          0,
+          1
+        ]
+      ]
+    },
+    {
+      "command": {
+        "name": "NewTab",
+        "settings": {
+          "position": "default",
+          "focus": true
+        }
+      },
+      "pattern": [
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          -1
+        ]
+      ]
     }
   ],
   "Settings": {
@@ -96,7 +219,7 @@
         "display": false,
         "Style": {
           "opacity": 0.8,
-          "strokeStyle": "#00AAA0",
+          "strokeStyle": "#00AAA0cc",
           "lineWidth": 10,
           "lineGrowth": true
         }
@@ -114,35 +237,44 @@
       "Command": {
         "display": false,
         "Style": {
-          "color": "#FFFFFF",
-          "backgroundColor": "#000000",
+          "backgroundColor": "#0000004d",
           "backgroundOpacity": 0.3,
-          "fontSize": "6vh"
+          "fontSize": "6vh",
+          "fontColor": "#FFFFFFff"
         }
-      }
+      },
+      "matchingAlgorithm": "strict"
     },
     "Rocker": {
       "active": true,
       "leftMouseClick": {
-        "command": "PageBack"
+        "name": "PageBack"
       },
       "rightMouseClick": {
-        "command": "PageForth"
+        "name": "PageForth"
       }
     },
     "Wheel": {
       "active": false,
       "mouseButton": 1,
       "wheelUp": {
-        "command": "FocusRightTab"
+        "name": "FocusRightTab",
+        "settings": {
+          "cycling": true,
+          "excludeDiscarded": false
+        }
       },
       "wheelDown": {
-        "command": "FocusLeftTab"
+        "name": "FocusLeftTab",
+        "settings": {
+          "cycling": true,
+          "excludeDiscarded": false
+        }
       }
     },
     "General": {
       "updateNotification": true,
-      "theme": "default"
+      "theme": "light"
     }
   }
 }
