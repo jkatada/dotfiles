@@ -1,136 +1,98 @@
-Install
-=======
+# dotfiles
 
-Prepare
---------
+## How to install
 
+### Prepare
+Install git.
+
+Set autoCRLF false.
 ```
-# [git] set autoCRLF false
 git config --global core.autocrlf false
 ```
 
-Windows 10
-----------
+### Windows 10
+Clone dotfiles.
+```
+cd %HOMEPATH%
+git clone https://github.com/jkatada/dotfiles
+```
 
-	# clone dotfiles
-	cd %HOMEPATH%
-	git clone https://github.com/jkatada/dotfiles
-	
-	# clone NeoBundle
-	cd dotfiles
-	git submodule init
-	git submodule update
-	
-	# create symbolic link (Use command prompt as an administrator)
-	cd %HOMEPATH%
-	mklink ".vimrc" "dotfiles\.vimrc"
-	mklink ".gvimrc" "dotfiles\.gvimrc"
-	# after installing vscode
-	mklink /d "%AppData%\Code\User" "c:%HOMEPATH%\dotfiles\vscode"
+Clone dein.vim.
+```
+cd dotfiles
+git submodule init
+git submodule update
+```
 
-### for VimFiler (rm.exe, cp.exe, etc...)
-    
-1. Install Cygwin or Git for Windows.
-2. Add path of Cygwin bin directory or Git /usr/bin directory to PATH environment variable.
+Create symbolic link (Use command prompt as an administrator)
+```
+cd %HOMEPATH%
+mklink ".vimrc" "dotfiles\.vimrc"
+mklink ".gvimrc" "dotfiles\.gvimrc"
+mkdir .config\git
+mklink ".config\git\ignore" "..\..\dotfiles\.config\git\ignore"
+```
 
-### for browser-sync
-    
-1. Install Node.js
-2. Install browser-sync
+Refer to [Windows directory](./Windows).
 
-		npm install -g browser-sync
+### Mac/Ubuntu
 
-### gvim shortcut
+Clone dotfiles.
+```
+cd
+git clone https://github.com/jkatada/dotfiles
+```
 
-gvim option for shortcut
+Clone dein.vim.
+```
+cd dotfiles
+git submodule init
+git submodule update
+```
 
-	-p
+Create synbolic link.
+```
+cd
+ln -s dotfiles/.vimrc .vimrc
+ln -s dotfiles/.gvimrc .gvimrc
+mkdir -p .config/git
+ln -s ~/dotfiles/.config/git/ignore .config/git/ignore
+```
 
-gvim option for SentTo shortcut
+Refer to [Mac directory](./Mac) or [Ubuntu directory](./Ubuntu).
 
-	-p --remote-tab-silent
- 
-gvim option for file association shortcut
-(change from regedit. key: `HKEY_CLASSES_ROOT/Applications/gvim.exe/shell/open/command`)
+## Update
 
-	-p --remote-tab-silent "%1"
+### dein.vim
 
-### Change keyboard mapping
-
-Double click `Windows/Swap_RCtrl_Caps-Win.reg` file and install.
-
-
-Mac/Ubuntu
----------
-
-(Mac) Install MacVim by Homebrew
-
-	# clone dotfiles
-	cd
-	git clone https://github.com/jkatada/dotfiles
-	
-	# clone NeoBundle
-	cd dotfiles
-	git submodule init
-	git submodule update
-	
-	# create synbolic link
-	cd
-	ln -s dotfiles/.vimrc .vimrc
-	ln -s dotfiles/.gvimrc .gvimrc
-
-    # global .gitignore
-    cd
-    mkdir -p .config/git
-    ln -s ~/dotfiles/.config/git/ignore .config/git/ignore
-
-    # after setup vim, make vimproc library
-    cd ~/dotfiles/vimfiles/dein/repos/github.com/Shougo/vimproc.vim
-    make
-
-### Ubuntu
-
-    # after installing vscode
-    rm -rf .config/Code/User
-    ln -s ~/dotfiles/vscode .config/Code/User
-    ~/dotfiles/vscode/install_extensions.sh
-
-
-Update
-=======
-
-dein.vim
-----------
-
-### Update and Push
-
-    # move to home directory (Windows: cd %HOMEPATH% )
-    cd
-    
-    cd dotfiles
-    git submodule foreach git pull origin master
+#### Update and Push
+Execute the following command. (For Windows use Git Bash)
+```
+cd ~/dotfiles
+git submodule foreach git pull origin master
+```
 
 After execution of the above command, execute "git add", "git commit" and "git push".
 
 ### Pull and Update (on other repository)
+Execute the following command. (For Windows use Git Bash)
+```
+cd ~/dotfiles
+git pull
+git submodule update
+```
 
-    # move to home directory (Windows: cd %HOMEPATH% )
-    cd
-    
-    cd dotfiles
-    git pull
-    git submodule update
 
+### dein.vim plugins
+Execute the following command on vim.
+```
+:call dein#update()
+```
 
-dein.vim plugins
------------------
+### vscode extensions list
+Execute the following command. (For Windows use Git Bash)
+```
+code --list-extensions > ~/dotfiles/vscode/extensions
+```
 
-vim command
-
-    :call dein#update()
-
-vscode extensions list
-----------------------
-
-    code --list-extensions > ~/dotfiles/vscode/extensions
 
