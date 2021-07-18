@@ -5,9 +5,12 @@
 ### Prepare
 Install git.
 
-Set autoCRLF false.
+Setup git global settings.
 ```
 git config --global core.autocrlf false
+git config --global credential.helper store
+git config --global user.name "Xxxx, Yyyy"
+git config --global user.email xxx@example.com
 ```
 
 ### Windows 10
