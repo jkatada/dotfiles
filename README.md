@@ -98,4 +98,9 @@ Execute the following command. (For Windows use Git Bash)
 code --list-extensions > ~/dotfiles/vscode/extensions
 ```
 
+Install extensions with new extensions list.
+```
+~/dotfiles/vscode/install_extensions.sh
+```
+
 
