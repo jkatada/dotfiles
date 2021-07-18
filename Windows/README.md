@@ -22,6 +22,7 @@ Double click `Windows/Swap_RCtrl_Caps-Win.reg` file and install.
             * import `~/dotfiles/settings/firefox/Gesturefy.json`
 * LibreOffice
 * Google日本語入力
+    * Import `Google日本語入力/keymap.txt` as keymap
 
 ## Setup vim
 
