@@ -81,10 +81,10 @@ vmap gx <Plug>(openbrowser-smart-search)
 " vim-quickrun
 "
 let g:quickrun_config = {}
- 
+
 "--------------------------------------------------------------------------
 " emmet
-" 
+"
 " 生成されるHTMLのlangをjaに設定(デフォルトはen)
 let g:user_emmet_settings = {
 \    'variables' : {
@@ -113,22 +113,6 @@ nnoremap ,? ?
 let g:previm_disable_vimproc = 1
 
 "--------------------------------------------------------------------------
-" buftabs
-"
-" バッファタブにパスを省略してファイル名のみ表示する
-"let g:buftabs_only_basename=1
-" バッファタブをステータスライン内に表示する
-"let g:buftabs_in_statusline=1
-" 現在のバッファをハイライト
-"let g:buftabs_active_highlight_group="Visual"
-" ステータスライン
-"set statusline=%=\[%{(&fenc!=''?&fenc:&enc)}/%{&ff}]\[%03l,%03v]
-" ステータスラインを常に表示
-"set laststatus=2
-" ステータスラインの色
-"hi StatusLine   term=NONE cterm=NONE ctermfg=black ctermbg=white
-"
-"--------------------------------------------------------------------------
 " 一般
 "
 " コマンド、検索パターンを50個まで履歴に残す
@@ -138,7 +122,7 @@ set shortmess+=I
 
 "--------------------------------------------------------------------------
 " 検索関連
-" 
+"
 " 検索文字列が小文字の場合は大文字小文字を区別なく検索する
 set ignorecase
 " 検索文字列に大文字が含まれている場合は区別して検索する
@@ -182,8 +166,8 @@ hi StatusLine   term=NONE cterm=NONE ctermfg=black ctermbg=white
 "
 " backspaceキーの挙動を設定する
 " indent    : 行頭の空白の削除を許す
-" eol        : 改行の削除を許す
-" start        : 挿入モードの開始位置での削除を許す
+" eol       : 改行の削除を許す
+" start     : 挿入モードの開始位置での削除を許す
 set backspace=indent,eol,start
 " 新しい行を直前の行と同じインデントにする
 set autoindent
@@ -250,17 +234,6 @@ vnoremap < <gv
 
 " 折りたたみのトグルをスペースに割り当て
 nnoremap <Space> za
-
-"--------------------------------------------------------------------------
-" コマンド定義
-"
-" browser-syncで編集中のHTMLを開く (要Browser-Syncのインストール)
-if has("mac")
-  "動作しない
-  "command! BrowserSync :! browser-sync start --server --files "%:h" --index "%:t" &
-elseif has("win32")
-  command! BrowserSync :! start /b /d "%:h" browser-sync start --server --files "%:h" --index "%:t"
-endif
 
 "--------------------------------------------------------------------------
 " ファイル読み込み時の設定
@@ -382,11 +355,6 @@ map <silent> [Tag]x :tabclose<CR>
 map <silent> [Tag]n :tabnext<CR>
 " tp 前のタブ
 map <silent> [Tag]p :tabprevious<CR>
-
-" ドラッグアンドドロップでもタブで開く
-" 挙動が妙になるので保留
-"autocmd VimEnter * tab all
-"autocmd BufAdd * exe 'tablast | tabe "' . expand( "<afile") .'"'
 
 "--------------------------------------------------------------------------
 "  セッション設定
