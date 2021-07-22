@@ -8,3 +8,4 @@ alias la='ls -la'
 
 alias gvim='open -a MacVim "$@"'
 
+export PATH="$PATH:$HOME/Library/Python/3.9/bin"

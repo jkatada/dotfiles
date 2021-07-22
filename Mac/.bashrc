@@ -11,6 +11,8 @@ alias vi='/Applications/MacVim.app/Contents/MacOS/Vim "$@"'
 alias vim='/Applications/MacVim.app/Contents/MacOS/Vim "$@"'
 alias gvim='/Applications/MacVim.app/Contents/MacOS/gvim "$@"'
 
+export PATH="$PATH:$HOME/Library/Python/3.9/bin"
+
 # for bash-completion
 if [ -f $(brew --prefix)/etc/bash_completion ]; then
   . $(brew --prefix)/etc/bash_completion
