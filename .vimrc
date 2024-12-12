@@ -266,9 +266,9 @@ set display+=lastline
 " 改行に←のようなマルチバイト文字は不可(MacVimでフォントがおかしくなる)
 set lcs=eol:\ ,trail:\ ,tab:>.,extends:\
 set list
-
+" 　  
 " 全角スペースの強調表示設定
-augroup IdegraphicSpace
+augroup IdeographicSpace
     autocmd!
     " ColorSchemeを変更したときにも全角スペースを表示するようにautocmdを使う
     autocmd ColorScheme * highlight IdeographicSpace term=underline cterm=underline gui=underline ctermfg=brown guifg=brown
